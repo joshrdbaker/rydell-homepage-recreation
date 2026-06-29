@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rydell Cars — Above the Fold Recreation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="header-wrapper">
+    <header>
+      <div class="container header-top">
+        <div class="header-left brand-logos">
+          <a href="https://www.rydellcars.com/" class="manu-logo">
+            <div class="rotate-logos">
+              <img src="https://www.rydellcars.com/assets/logos/transparent/chevrolet.png" alt="Chevrolet" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/gmc.png" alt="GMC" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/cadillac.png" alt="Cadillac" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/honda.png" alt="Honda" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/nissan.png" alt="Nissan" style="display:none" />
+              <img src="https://www.rydellcars.com/static/industry-automotive/logos/supp/toyota/transparent/toyota.png" alt="Toyota" style="display:none" />
+            </div>
+          </a>
+          <a href="https://www.rydellcars.com/" class="real-rydell-logo" aria-label="Real Life, Real Relationships, Real Rydell">
+            <span class="real-line">
+              <span class="real-r" aria-hidden="true">R</span>
+              <span class="real-rest">eal Life</span>
+            </span>
+            <span class="real-line">
+              <span class="real-r" aria-hidden="true">R</span>
+              <span class="real-rest">eal Relationships</span>
+            </span>
+            <span class="real-line real-line--brand">
+              <span class="real-r" aria-hidden="true">R</span>
+              <span class="real-rest">eal </span>
+              <img class="rydell-wordmark" src="assets/rydell-wordmark.png" alt="Rydell" />
+            </span>
+          </a>
+        </div>
+        <div class="header-right">
+          <ul class="phone-list">
+            <li>
+              <label>Rydell Chevrolet GMC</label>
+              <span>701-772-7211</span>
+            </li>
+            <li>
+              <label>Rydell Honda Nissan</label>
+              <span>701-746-2020</span>
+            </li>
+            <li>
+              <label>Rydell Toyota</label>
+              <span>701-787-6259</span>
+            </li>
+          </ul>
+          <div class="icon-links">
+            <ul>
+              <li>
+                <a href="https://www.rydellcars.com/serviceappmt.aspx" class="icon-link">
+                  <i class="fa fa-calendar-check-o"></i>
+                  <span>Service</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.rydellcars.com/hours.aspx" class="icon-link">
+                  <i class="fa fa-map-marker"></i>
+                  <span>Map</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.rydellcars.com/contactus.aspx" class="icon-link">
+                  <i class="fa fa-envelope"></i>
+                  <span>Contact</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.rydellcars.com/mysavedvehicles" class="icon-link saved">
+                  <i class="fa fa-heart"></i>
+                  <span>Saved</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="https://www.rydellcars.com/" class="home-link" aria-label="Home"><i class="fa fa-home"></i></a></li>
+          <li><button type="button">Shop</button></li>
+          <li><button type="button">Sell/Trade</button></li>
+          <li><button type="button">Service &amp; Parts</button></li>
+          <li><button type="button">Offers</button></li>
+          <li><button type="button">About</button></li>
+          <li><button type="button">Contact</button></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+  <div class="quick-intro">
+    <div class="quick-intro-col col-left">
+      <div class="video-overlay"></div>
+      <video autoplay loop muted playsinline poster="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
+        <source src="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.mp4" type="video/mp4" />
+      </video>
+      <div class="video-content">
+        <h2 class="hero-title">Inventory Search</h2>
+        <ul class="search-nav">
+          <li class="active">
+            <button type="button" data-search-tab="filter"><i class="fa fa-sliders"></i> Vehicle</button>
+          </li>
+          <li>
+            <button type="button" data-search-tab="keyword"><i class="fa fa-search"></i> Keyword</button>
+          </li>
+          <li>
+            <button type="button" data-search-tab="budget"><i class="fa fa-usd"></i> Budget</button>
+          </li>
+        </ul>
+
+        <div class="search-panel active" data-search-panel="filter">
+          <form id="searchByFilterForm">
+            <div class="vehicle-filters">
+              <div class="vehicle-filter">
+                <label for="searchByFilterType">Type</label>
+                <select id="searchByFilterType" name="VehicleType">
+                  <option value="Type:A">All</option>
+                  <option value="Type:N">New</option>
+                  <option value="Type:U">Used</option>
+                  <option value="Cpo:true">Certified</option>
+                </select>
+              </div>
+              <div class="vehicle-filter">
+                <label for="searchByFilterMakes">Make</label>
+                <select id="searchByFilterMakes" name="VehicleMake">
+                  <option value="">Any Make</option>
+                </select>
+              </div>
+              <div class="vehicle-filter">
+                <label for="searchByFilterModels">Model</label>
+                <select id="searchByFilterModels" name="VehicleModel">
+                  <option value="">Any Model</option>
+                </select>
+              </div>
+            </div>
+            <div class="search-actions">
+              <button type="button" class="btn-reset" id="searchByFilterReset">Reset</button>
+              <button type="submit" class="btn-search">Search</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="search-panel" data-search-panel="keyword">
+          <div class="keyword-search">
+            <input type="text" placeholder="Search by Make, Stock #, etc." aria-label="Keyword search" />
+            <button type="button" class="btn-search">Search</button>
+          </div>
+        </div>
+
+        <div class="search-panel" data-search-panel="budget">
+          <div class="budget-inputs">
+            <div class="vehicle-filter">
+              <label for="price_min">Minimum Price</label>
+              <input id="price_min" type="text" placeholder="0" />
+            </div>
+            <div class="vehicle-filter">
+              <label for="price_max">Maximum Price</label>
+              <input id="price_max" type="text" placeholder="121,000" />
+            </div>
+          </div>
+          <div class="search-actions">
+            <button type="button" class="btn-reset">Reset</button>
+            <button type="button" class="btn-search">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-intro-col col-right">
+      <div class="staff-panel">
+        <div class="staff-feature" id="staffCanvas" aria-live="polite" aria-label="Team spotlight">
+          <div class="real-people-backdrop" aria-hidden="true">
+            <div class="real-people-lockup">
+              <div class="real-people-line real-people-line--real">
+                <img class="real-people-r" src="assets/rydell-r.png" alt="" />
+                <span class="real-people-text">eal</span>
+              </div>
+              <div class="real-people-line real-people-line--people">
+                <span class="real-people-word">People</span>
+              </div>
+            </div>
+          </div>
+          <img id="staffImage" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member" class="staff-cutout" />
+          <div class="overlay-layer" id="overlayLayer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="promo-ribbon" aria-label="Quick links">
+    <a href="https://www.rydellcars.com/rydell_new_offers.html" class="ribbon-item ribbon-item--offers">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Special Offers</h4>
+        <span class="btn-cta">View Specials</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/schedule-service.html" class="ribbon-item ribbon-item--service">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Schedule Service</h4>
+        <span class="btn-cta">Schedule Now</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/aboutus.aspx#brandPromise" class="ribbon-item ribbon-item--promises">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5663/brandPromise.png')"></div>
+      <div class="ribbon-text">
+        <h4>What makes Rydell real?</h4>
+        <span class="btn-cta">Our Seven Promises to You</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="content-section content-section--makes" aria-label="Shop by vehicle make">
+    <div class="container">
+      <h2 class="h1 text-center make-racetrack__title">Shop by Vehicle Make</h2>
+      <div class="pad-vert-1x" aria-hidden="true"></div>
+      <div class="racetrack-carousel" id="makeRacetrack" data-racetrack data-racetrack-speed="0.45">
+        <button type="button" class="racetrack-carousel__control racetrack-carousel__control--prev" data-racetrack-prev aria-label="Scroll makes left">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="racetrack-carousel__viewport" data-racetrack-viewport>
+          <div class="racetrack-carousel__track" id="makeRacetrackTrack" data-racetrack-track></div>
+        </div>
+        <button type="button" class="racetrack-carousel__control racetrack-carousel__control--next" data-racetrack-next aria-label="Scroll makes right">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--chevy-slide" aria-label="Vehicle services">
+    <div class="container">
+      <div class="chevy-slide-app">
+        <section class="chevy-slide-app__panel" aria-label="Season slider">
+          <h2 class="chevy-slide-app__headline">
+            Everything your vehicle needs, all year round at
+            <img src="assets/rydell-wordmark.png" alt="Rydell" class="chevy-slide-app__headline-logo">
+          </h2>
+
+          <div class="chevy-slide-app__carousel">
+            <div class="chevy-slide-app__carousel-track" id="chevySlideTrack">
+              <div class="chevy-slide-app__card chevy-slide-app__card--prev" role="button" tabindex="0" aria-label="View previous slide"><img id="chevySlideImgPrev" class="chevy-slide-app__card-img" src="" alt=""></div>
+              <div class="chevy-slide-app__card chevy-slide-app__card--center" role="button" tabindex="0" aria-label="Advance to next slide"><img id="chevySlideImgCenter" class="chevy-slide-app__card-img" src="" alt=""></div>
+              <div class="chevy-slide-app__card chevy-slide-app__card--next" role="button" tabindex="0" aria-label="View next slide"><img id="chevySlideImgNext" class="chevy-slide-app__card-img" src="" alt=""></div>
+            </div>
+          </div>
+
+          <div class="chevy-slide-app__service-row">
+            <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--prev" id="chevySlideBtnPrev" aria-label="Previous service">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="chevy-slide-app__service-copy">
+              <div class="chevy-slide-app__label" id="chevySlideLabel">RYDELL DELIVERS</div>
+              <p class="chevy-slide-app__desc" id="chevySlideDesc"></p>
+            </div>
+            <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--next" id="chevySlideBtnNext" aria-label="Next service">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="chevy-slide-app__swipe-hint" id="chevySlideSwipeHint" aria-hidden="true">
+            <i class="fa fa-chevron-left"></i>
+            <span>swipe</span>
+            <i class="fa fa-chevron-right"></i>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <script src="js/staff-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/staff-overlay.js"></script>
+  <script src="js/make-racetrack.js"></script>
+  <script src="js/racetrack-carousel.js"></script>
+  <script src="js/chevy-slide-app.js"></script>
+</body>
+</html>

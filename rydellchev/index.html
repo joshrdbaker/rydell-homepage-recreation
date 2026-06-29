@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero-brandon.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
   <div class="header-wrapper">
@@ -262,11 +263,98 @@
         </div>
       </div>
     </section>
+
+    <section class="content-section content-section--silverado-1500" aria-label="Silverado 1500">
+      <div class="container">
+        <div class="silverado-1500-section__copy">
+          <h2 class="silverado-1500-section__title">Silverado 1500</h2>
+          <p class="silverado-1500-section__text">When you combine a century of truck building know-how with 7 million miles of testing, you don&rsquo;t just get any old truck. You get one that&rsquo;s bigger, stronger and lighter than the previous generation. One that offers you more choices so you can get the capability you need. One that&rsquo;s built on the legacy of the most dependable, longest-lasting full-sized pickups on the road. You get a Silverado.</p>
+          <a class="silverado-1500-section__cta" href="https://www.rydellchev.com/searchnew.aspx?Make=Chevrolet&Model=Silverado+1500">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section dealerships-section" aria-label="Rydell Chevrolet">
+      <div class="container dealerships-section__inner">
+        <div class="dealerships-section__copy">
+          <h2 class="dealerships-section__title">
+            Rydell Chevrolet: Grand Forks Chevrolet Dealer
+            <span class="dealerships-section__subtitle">Your Grand Forks Chevrolet Dealer Since 1954</span>
+          </h2>
+          <p class="dealerships-section__lead">Rydell Chevrolet has been serving North Dakota and Minnesota since 1954. From Silverado trucks to Equinox SUVs, we continue the proud tradition of providing a friendly car-buying atmosphere with a no hassle, no haggle pricing policy.</p>
+          <p class="dealerships-section__lead">You can&rsquo;t buy the wrong car at Rydell with our 7 Day Money Back Guarantee. Experience a new way to purchase your next Chevrolet!</p>
+          <a href="https://www.rydellchev.com/aboutus.aspx" class="btn-cta">More About Us</a>
+        </div>
+
+        <div class="dealerships-section__spotlight" id="dealershipSpotlight">
+          <div class="dealerships-section__bg" id="dealershipBg" aria-hidden="true"></div>
+          <div class="dealerships-section__figure">
+            <img id="dealershipStaffImg" class="dealerships-section__face staff-cutout" src="assets/mike-cutout.png" alt="Mike — Rydell team member">
+            <div class="brandon-hero__name-tag dealerships-section__name-tag">
+              <div class="overlay-marker-text" id="dealershipMemberText" aria-live="polite">
+                <span class="overlay-line overlay-line--name">Mike</span>
+                <span class="overlay-line overlay-line--store">Chevrolet GMC store</span>
+                <span class="overlay-line overlay-line--role">Certified Technician</span>
+                <span class="overlay-line overlay-line--since">Rydell Team Member</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer class="site-footer site-footer--chevy" aria-label="Rydell Chevrolet location">
+    <div class="container">
+      <h2 class="site-footer__title">Visit Rydell Chevrolet GMC</h2>
+      <ul class="site-footer__locations">
+        <li class="site-footer__location">
+          <h3>Rydell Chevrolet GMC</h3>
+          <address>2700 S Washington St<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017727211">701-772-7211</a></p>
+          <p>Service: <a href="tel:+17017129609">701-712-9609</a></p>
+          <p>Parts: <a href="tel:+17017129624">701-712-9624</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=2700+South+Washington+St,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+      </ul>
+
+      <div class="site-footer__map-block">
+        <h2 class="site-footer__title site-footer__title--sub">Find Us in Grand Forks</h2>
+        <p class="site-footer__map-lead">Rydell Chevrolet GMC on South Washington Street — tap the pin for directions.</p>
+        <div class="site-footer__map" id="dealershipMap" role="region" aria-label="Map of Rydell Chevrolet GMC"></div>
+      </div>
+
+      <div class="site-footer__social-block">
+        <h2 class="site-footer__title site-footer__title--sub">Follow Us</h2>
+        <ul class="site-footer__social">
+          <li><a href="https://www.facebook.com/Rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
+          <li><a href="https://www.twitter.com/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
+          <li><a href="https://www.youtube.com/user/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></a></li>
+          <li><a href="https://www.linkedin.com/company/3235241/" target="_blank" rel="noopener" aria-label="Rydell on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+          <li><a href="https://www.instagram.com/rydellcars/" target="_blank" rel="noopener" aria-label="Rydell on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+          <li><a href="https://www.rydellcars.com/blogs/744/" target="_blank" rel="noopener" aria-label="Rydell blog"><i class="fa fa-rss" aria-hidden="true"></i><span>Blog</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/main.js"></script>
   <script src="js/hero-brandon-headline.js"></script>
   <script src="js/hero-brandon-controls.js"></script>
   <script src="js/chevy-slide-app.js"></script>
+  <script src="js/staff-data.js"></script>
+  <script src="js/dealerships-section.js"></script>
+  <script src="js/dealership-locations.js"></script>
+  <script src="js/dealership-map.js"></script>
 </body>
 </html>

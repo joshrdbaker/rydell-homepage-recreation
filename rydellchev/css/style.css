@@ -519,6 +519,64 @@ header {
   text-align: center;
 }
 
+.content-section--silverado-1500 {
+  padding: 60px 0 120px;
+  background: #4b4b4b;
+  color: #fff;
+}
+
+.content-section--silverado-1500 .container {
+  max-width: 1170px;
+}
+
+.silverado-1500-section__copy {
+  max-width: 420px;
+}
+
+.silverado-1500-section__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.silverado-1500-section__text {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.silverado-1500-section__cta {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 28px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.silverado-1500-section__cta:hover {
+  background: #fff;
+  color: #222;
+}
+
+@media (min-width: 768px) {
+  .content-section--silverado-1500 {
+    padding: 85px 0 225px;
+    background:
+      linear-gradient(1250deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)),
+      url("https://www.rydellchev.com/static/dealer-30751/bg-silverado.jpg") no-repeat scroll center center / cover;
+  }
+}
+
 .lineup-section h2 {
   margin: 0 0 20px;
   font-size: 30px;
@@ -1109,4 +1167,452 @@ header {
       transform: translateX(4px);
     }
   }
+}
+.staff-cutout {
+  position: relative;
+  z-index: 1;
+  height: var(--staff-cutout-height, auto);
+  max-height: var(--staff-cutout-height, 100%);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.overlay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.staff-feature.is-fading .staff-cutout,
+.staff-feature.is-fading .overlay-layer {
+  opacity: 0;
+}
+
+.overlay-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 182px;
+  height: 64px;
+}
+
+.overlay-marker-text {
+  display: block;
+  box-sizing: border-box;
+  width: 182px;
+  height: 64px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  border-radius: 4px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.overlay-line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overlay-line--name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+
+.overlay-line--store,
+.overlay-line--role,
+.overlay-line--since {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.92);
+}
+.dealerships-section {
+  padding: 0;
+  background: #fff;
+}
+
+.dealerships-section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+  min-height: clamp(420px, 52vw, 560px);
+}
+
+.dealerships-section__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
+}
+
+.dealerships-section__title {
+  margin: 0 0 12px;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--main-color);
+}
+
+.dealerships-section__subtitle {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  color: #444;
+}
+
+.dealerships-section__lead {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #444;
+}
+
+.dealerships-section__copy .btn-cta {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.dealerships-section__spotlight {
+  position: relative;
+  min-height: clamp(420px, 52vw, 560px);
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #222;
+  transition: opacity 0.45s ease;
+}
+
+.dealerships-section__spotlight.is-fading {
+  opacity: 0;
+}
+
+.dealerships-section__bg {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) saturate(1.05);
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.dealerships-section__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.28) 100%);
+  pointer-events: none;
+}
+
+.dealerships-section__figure {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  padding: 0 clamp(12px, 2vw, 24px);
+  box-sizing: border-box;
+}
+
+.dealerships-section__face {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+  transform: translateZ(0);
+}
+
+.dealerships-section__face.staff-cutout {
+  z-index: 2;
+  height: 100%;
+  max-height: 100%;
+}
+
+.dealerships-section__name-tag {
+  position: absolute;
+  left: var(--name-tag-left, 52px);
+  bottom: var(--name-tag-bottom, 18px);
+  z-index: 4;
+  flex: none;
+  align-self: auto;
+  width: 182px;
+  margin: 0;
+  transform: translateY(var(--name-tag-peek, 11%));
+  pointer-events: none;
+}
+
+.dealerships-section__name-tag.brandon-hero__name-tag {
+  margin-bottom: 0;
+}
+
+.dealerships-section__name-tag .overlay-marker-text {
+  width: 182px;
+  height: 64px;
+}
+
+.site-footer {
+  padding: 48px 0 56px;
+  background: #222;
+  color: #fff;
+}
+
+.site-footer__title {
+  margin: 0 0 24px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #fff;
+}
+
+.site-footer__locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.site-footer__location h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.site-footer__location address {
+  margin: 0 0 6px;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.site-footer__location p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-footer__location a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer__location a:hover,
+.site-footer__location a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.site-footer__hours {
+  width: 100%;
+  margin: 0 0 10px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.site-footer__hours th,
+.site-footer__hours td {
+  padding: 2px 0;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.site-footer__hours th {
+  width: 38%;
+  padding-right: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 600;
+}
+
+.site-footer__hours td {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.site-footer__directions {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer__directions:hover,
+.site-footer__directions:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer__title--sub {
+  margin-top: 40px;
+}
+
+.site-footer__map-block {
+  margin-top: 8px;
+}
+
+.site-footer__map-lead {
+  margin: -12px auto 16px;
+  max-width: 560px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer__map {
+  width: 100%;
+  height: clamp(280px, 42vw, 530px);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1a1a1a;
+}
+
+.site-footer__map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.site-footer__map .leaflet-popup-content-wrapper {
+  border-radius: 4px;
+}
+
+.site-footer__map .leaflet-popup-content {
+  margin: 10px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.site-footer__social-block {
+  margin-top: 8px;
+  padding-bottom: 8px;
+}
+
+.site-footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.site-footer__social a:hover,
+.site-footer__social a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer__social .fa {
+  font-size: 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 991px) {
+  .dealerships-section__inner {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .dealerships-section__copy {
+    padding: 40px 20px;
+  }
+
+  .dealerships-section__spotlight {
+    min-height: clamp(360px, 72vw, 480px);
+  }
+
+  .site-footer__locations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dealerships-section__spotlight {
+    min-height: 340px;
+  }
+
+  .dealerships-section__name-tag {
+    left: 20px;
+    bottom: 14px;
+  }
+
+  .site-footer__locations {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer--chevy .site-footer__locations {
+  grid-template-columns: minmax(0, 360px);
+  justify-content: center;
+}
+
+.carousel-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

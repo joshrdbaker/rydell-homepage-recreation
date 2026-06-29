@@ -38,6 +38,41 @@ window.RYDELL_STAFF = [
     oem: "Toyota",
     since: "2017",
     image: "assets/kirby-cutout.png"
+  },
+  {
+    id: "paul",
+    name: "Paul",
+    lastInitial: "",
+    oem: "Honda-Nissan",
+    since: "",
+    image: "assets/paul-cutout.png"
+  }
+];
+
+window.RYDELL_DEALERSHIP_TEAM = [
+  {
+    id: "brandon",
+    background: "assets/dealerships-bg/shop-floor-1.png"
+  },
+  {
+    id: "colton",
+    background: "assets/dealerships-bg/shop-floor-2.png"
+  },
+  {
+    id: "doug",
+    background: "assets/dealerships-bg/shop-floor-3.png"
+  },
+  {
+    id: "jose",
+    background: "assets/dealerships-bg/shop-floor-1.png"
+  },
+  {
+    id: "kirby",
+    background: "assets/dealerships-bg/shop-floor-2.png"
+  },
+  {
+    id: "paul",
+    background: "assets/dealerships-bg/shop-floor-2.png"
   }
 ];
 
@@ -106,10 +141,14 @@ window.staffStoreName = function staffStoreName(oem) {
 
 window.staffOverlayCopy = function staffOverlayCopy(person) {
   const dotted = person.lastInitial === "M" || person.lastInitial === "H";
+  const line1 = person.lastInitial
+    ? person.name + " " + person.lastInitial + (dotted ? "." : "")
+    : person.name;
+  const line4 = person.since ? "Team Member Since " + person.since : "Rydell Team Member";
   return {
-    line1: person.name + " " + person.lastInitial + (dotted ? "." : ""),
+    line1: line1,
     line2: window.staffStoreName(person.oem),
     line3: "Certified Technician",
-    line4: "Team Member Since " + person.since
+    line4: line4
   };
 };

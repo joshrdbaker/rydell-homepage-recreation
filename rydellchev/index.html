@@ -6,6 +6,7 @@
   <title>Rydell Chevrolet — Above the Fold Recreation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hero-brandon.css" />
 </head>
 <body>
   <div class="header-wrapper">
@@ -79,143 +80,131 @@
   </div>
 
   <main>
-    <div class="quick-intro">
-      <div class="quick-intro-col col-left">
-        <div class="video-overlay"></div>
-        <video autoplay loop muted playsinline poster="https://www.rydellchev.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
+    <div class="quick-intro quick-intro--brandon-hero">
+      <div class="brandon-hero brandon-hero--headline-only">
+        <video class="brandon-hero__video" autoplay loop muted playsinline poster="https://www.rydellchev.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
           <source src="https://www.rydellchev.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.mp4" type="video/mp4" />
         </video>
-        <div class="video-content">
-          <p class="shop-header-line-one">Shop By Vehicle</p>
-          <p class="shop-header-line-two"><strong>474</strong> Vehicles Available</p>
-          <ul class="search-nav">
-            <li class="active">
-              <button type="button" data-search-tab="filter"><i class="fa fa-sliders"></i> Vehicle</button>
-            </li>
-            <li>
-              <button type="button" data-search-tab="keyword"><i class="fa fa-search"></i> Keyword</button>
-            </li>
-            <li>
-              <button type="button" data-search-tab="budget"><i class="fa fa-usd"></i> Budget</button>
-            </li>
-          </ul>
+        <div class="video-overlay brandon-hero__overlay"></div>
 
-          <div class="search-panel active" data-search-panel="filter">
-            <form id="searchByFilterForm">
-              <div class="vehicle-filters">
-                <div class="vehicle-filter">
-                  <label for="searchByFilterType">Type</label>
-                  <select id="searchByFilterType" name="VehicleType">
-                    <option value="Type:A">All</option>
-                    <option value="Type:N">New</option>
-                    <option value="Type:U">Used</option>
-                    <option value="Cpo:true">Certified</option>
-                    <option value="CarBravo:true">CarBravo</option>
-                  </select>
-                </div>
-                <div class="vehicle-filter">
-                  <label for="searchByFilterMakes">Make</label>
-                  <select id="searchByFilterMakes" name="VehicleMake">
-                    <option value="">Any Make</option>
-                  </select>
-                </div>
-                <div class="vehicle-filter">
-                  <label for="searchByFilterModels">Model</label>
-                  <select id="searchByFilterModels" name="VehicleModel">
-                    <option value="">Any Model</option>
-                  </select>
-                </div>
-              </div>
-              <div class="search-actions">
-                <button type="button" class="btn-reset" id="searchByFilterReset">Reset</button>
-                <button type="submit" class="btn-search">Search</button>
-              </div>
-            </form>
-          </div>
-
-          <div class="search-panel" data-search-panel="keyword">
-            <div class="keyword-search">
-              <input type="text" placeholder="Search by Make, Stock #, etc." aria-label="Keyword search" />
-              <button type="button" class="btn-search">Search</button>
+        <div class="brandon-hero__layout">
+          <div class="brandon-hero__staff">
+            <div class="brandon-hero__spotlight">
+              <h1 class="brandon-hero__headline brandon-hero__headline--solo">
+                <span class="brandon-hero__headline-line">
+                  Real
+                  <span class="brandon-hero__word-flip" data-word-flip aria-live="polite">
+                    <span class="brandon-hero__word-flip-sizer" aria-hidden="true">relationships</span>
+                    <span class="brandon-hero__word-flip-stage">
+                      <span class="brandon-hero__word-flip-word is-current">people</span>
+                    </span>
+                  </span>
+                </span>
+                <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954.</span>
+              </h1>
             </div>
           </div>
 
-          <div class="search-panel" data-search-panel="budget">
-            <div class="budget-inputs">
-              <div class="vehicle-filter">
-                <label for="price_min">Minimum Price</label>
-                <input id="price_min" type="text" placeholder="0" />
+          <div class="brandon-hero__search">
+            <div class="video-content brandon-hero__search-inner">
+              <h2 class="hero-title">Inventory Search</h2>
+              <ul class="search-nav">
+                <li class="active">
+                  <button type="button" data-search-tab="filter"><i class="fa fa-sliders"></i> Vehicle</button>
+                </li>
+                <li>
+                  <button type="button" data-search-tab="keyword"><i class="fa fa-search"></i> Keyword</button>
+                </li>
+                <li>
+                  <button type="button" data-search-tab="budget"><i class="fa fa-usd"></i> Budget</button>
+                </li>
+              </ul>
+
+              <div class="search-panel active" data-search-panel="filter">
+                <form id="searchByFilterForm">
+                  <div class="vehicle-filters">
+                    <div class="vehicle-filter">
+                      <label for="searchByFilterType">Type</label>
+                      <select id="searchByFilterType" name="VehicleType">
+                        <option value="Type:A">All</option>
+                        <option value="Type:N">New</option>
+                        <option value="Type:U">Used</option>
+                        <option value="Cpo:true">Certified</option>
+                        <option value="CarBravo:true">CarBravo</option>
+                      </select>
+                    </div>
+                    <div class="vehicle-filter">
+                      <label for="searchByFilterMakes">Make</label>
+                      <select id="searchByFilterMakes" name="VehicleMake">
+                        <option value="">Any Make</option>
+                      </select>
+                    </div>
+                    <div class="vehicle-filter">
+                      <label for="searchByFilterModels">Model</label>
+                      <select id="searchByFilterModels" name="VehicleModel">
+                        <option value="">Any Model</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="search-actions">
+                    <button type="button" class="btn-reset" id="searchByFilterReset">Reset</button>
+                    <button type="submit" class="btn-search">Search</button>
+                  </div>
+                </form>
               </div>
-              <div class="vehicle-filter">
-                <label for="price_max">Maximum Price</label>
-                <input id="price_max" type="text" placeholder="101,000" />
+
+              <div class="search-panel" data-search-panel="keyword">
+                <div class="keyword-search">
+                  <input type="text" placeholder="Search by Make, Stock #, etc." aria-label="Keyword search" />
+                  <button type="button" class="btn-search">Search</button>
+                </div>
               </div>
-            </div>
-            <div class="search-actions">
-              <button type="button" class="btn-reset">Reset</button>
-              <button type="button" class="btn-search">Search</button>
+
+              <div class="search-panel" data-search-panel="budget">
+                <div class="budget-inputs">
+                  <div class="vehicle-filter">
+                    <label for="price_min">Minimum Price</label>
+                    <input id="price_min" type="text" placeholder="0" />
+                  </div>
+                  <div class="vehicle-filter">
+                    <label for="price_max">Maximum Price</label>
+                    <input id="price_max" type="text" placeholder="101,000" />
+                  </div>
+                </div>
+                <div class="search-actions">
+                  <button type="button" class="btn-reset">Reset</button>
+                  <button type="button" class="btn-search">Search</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="quick-intro-col col-right">
-        <div class="quick-intro-item quick-intro-item-1">
-          <section class="carousel-section" aria-label="Homepage promotional carousel">
-            <div class="carousel-inner">
-              <div class="carousel-slide active">
-                <a href="https://www.rydellchev.com/searchnew.aspx?Year=2026&Make=CHEVROLET&Model=SILVERADO%201500">
-                  <img src="https://www.rydellchev.com/static/cam-gm/01_2026_JUN_MME_2026%20CHEVY%20SILVERADO%201500_NTL_AO_1920x600.jpg" alt="2026 Chevy Silverado 1500 — 0% APR for 5 years" />
-                </a>
-              </div>
-              <div class="carousel-slide">
-                <a href="https://www.rydellchev.com/searchnew.aspx?Year=2026&Make=CHEVROLET&Model=EQUINOX,TRAX">
-                  <img src="https://www.rydellchev.com/static/cam-gm/04_2026_JUN_MME_2026%20CHEVY%20SUV%20PACK_NTL_AO_1920x600.jpg" alt="2026 Equinox and Trax — 0% APR" />
-                </a>
-              </div>
-              <div class="carousel-slide">
-                <a href="https://www.rydellchev.com/rydell-buys">
-                  <img src="https://www.rydellchev.com/static/dealer-30751/Evergreen_Banners/rydell-buys_let-us-pay-you_50_v2.2_1920x600_2x.png" alt="Rydell Buys" />
-                </a>
-              </div>
-              <div class="carousel-slide">
-                <a href="https://www.rydellchev.com/searchnew.aspx">
-                  <img src="https://www.rydellchev.com/static/dealer-30751/Evergreen_Banners/rydell_july_new-inventory_50_v1.0_homepage-1920x600_2x.png" alt="New Inventory" />
-                </a>
-              </div>
-            </div>
-            <button type="button" class="carousel-controls carousel-prev" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
-            <button type="button" class="carousel-controls carousel-next" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
-            <ol class="carousel-indicators">
-              <li><button type="button" class="active" aria-label="Slide 1"></button></li>
-              <li><button type="button" aria-label="Slide 2"></button></li>
-              <li><button type="button" aria-label="Slide 3"></button></li>
-              <li><button type="button" aria-label="Slide 4"></button></li>
-            </ol>
-          </section>
-        </div>
-
-        <div class="quick-intro-item">
-          <a href="https://www.rydellchev.com/rydell-new-offers.html" class="quick-intro-link">
-            <div class="quick-intro-image" style="background-image:url('https://www.rydellchev.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
-            <div class="quick-intro-text">
-              <h4>Special Offers</h4>
-              <span class="btn-cta">New Specials</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="quick-intro-item">
-          <a href="https://www.rydellchev.com/schedule-service.html" class="quick-intro-link">
-            <div class="quick-intro-image" style="background-image:url('https://www.rydellchev.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
-            <div class="quick-intro-text">
-              <h4>Schedule Service</h4>
-              <span class="btn-cta">Schedule Now</span>
-            </div>
-          </a>
         </div>
       </div>
     </div>
+
+    <section class="promo-ribbon" aria-label="Quick links">
+      <a href="https://www.rydellchev.com/rydell-new-offers.html" class="ribbon-item ribbon-item--offers">
+        <div class="ribbon-image" style="background-image:url('https://www.rydellchev.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
+        <div class="ribbon-text">
+          <h4>Special Offers</h4>
+          <span class="btn-cta">View Specials</span>
+        </div>
+      </a>
+      <a href="https://www.rydellchev.com/schedule-service.html" class="ribbon-item ribbon-item--service">
+        <div class="ribbon-image" style="background-image:url('https://www.rydellchev.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
+        <div class="ribbon-text">
+          <h4>Schedule Service</h4>
+          <span class="btn-cta">Schedule Now</span>
+        </div>
+      </a>
+      <a href="https://www.rydellcars.com/aboutus.aspx#brandPromise" class="ribbon-item ribbon-item--promises">
+        <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5664/images/body-shop/tech.jpg')"></div>
+        <div class="ribbon-text">
+          <h4>What makes Rydell &ldquo;real&rdquo;?</h4>
+          <span class="btn-cta">Our Seven Promises to You</span>
+        </div>
+      </a>
+    </section>
 
     <section class="lineup-section container">
       <h2>View Our Lineup</h2>
@@ -232,8 +221,52 @@
       </ul>
       <div id="lineupGrids"></div>
     </section>
+
+    <section class="content-section content-section--chevy-slide" aria-label="Vehicle services">
+      <div class="container">
+        <div class="chevy-slide-app">
+          <section class="chevy-slide-app__panel" aria-label="Season slider">
+            <h2 class="chevy-slide-app__headline">
+              Everything your vehicle needs, all year round at
+              <img src="assets/rydell-wordmark.png" alt="Rydell" class="chevy-slide-app__headline-logo">
+            </h2>
+
+            <div class="chevy-slide-app__carousel">
+              <div class="chevy-slide-app__carousel-track" id="chevySlideTrack">
+                <div class="chevy-slide-app__card chevy-slide-app__card--prev" role="button" tabindex="0" aria-label="View previous slide"><img id="chevySlideImgPrev" class="chevy-slide-app__card-img" src="" alt=""></div>
+                <div class="chevy-slide-app__card chevy-slide-app__card--center" role="button" tabindex="0" aria-label="Advance to next slide"><img id="chevySlideImgCenter" class="chevy-slide-app__card-img" src="" alt=""></div>
+                <div class="chevy-slide-app__card chevy-slide-app__card--next" role="button" tabindex="0" aria-label="View next slide"><img id="chevySlideImgNext" class="chevy-slide-app__card-img" src="" alt=""></div>
+              </div>
+            </div>
+
+            <div class="chevy-slide-app__service-row">
+              <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--prev" id="chevySlideBtnPrev" aria-label="Previous service">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <div class="chevy-slide-app__service-copy">
+                <div class="chevy-slide-app__label" id="chevySlideLabel">RYDELL DELIVERS</div>
+                <p class="chevy-slide-app__desc" id="chevySlideDesc"></p>
+                <a href="https://www.rydellchev.com/rydell-delivers" class="chevy-slide-app__cta" id="chevySlideCta">Learn About Delivery</a>
+              </div>
+              <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--next" id="chevySlideBtnNext" aria-label="Next service">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="chevy-slide-app__swipe-hint" id="chevySlideSwipeHint" aria-hidden="true">
+              <i class="fa fa-chevron-left"></i>
+              <span>swipe</span>
+              <i class="fa fa-chevron-right"></i>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/main.js"></script>
+  <script src="js/hero-brandon-headline.js"></script>
+  <script src="js/hero-brandon-controls.js"></script>
+  <script src="js/chevy-slide-app.js"></script>
 </body>
 </html>

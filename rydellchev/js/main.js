@@ -119,46 +119,4 @@
   });
 
   renderLineup("trucks");
-
-  const slides = Array.from(document.querySelectorAll(".carousel-slide"));
-  const indicators = Array.from(document.querySelectorAll(".carousel-indicators button"));
-  let current = slides.findIndex((s) => s.classList.contains("active"));
-  if (current < 0) current = 0;
-  let timer;
-
-  function goTo(index) {
-    current = (index + slides.length) % slides.length;
-    slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
-    indicators.forEach((dot, i) => dot.classList.toggle("active", i === current));
-  }
-
-  function next() {
-    goTo(current + 1);
-  }
-
-  function prev() {
-    goTo(current - 1);
-  }
-
-  function startAutoplay() {
-    clearInterval(timer);
-    timer = setInterval(next, 5000);
-  }
-
-  document.querySelector(".carousel-prev")?.addEventListener("click", () => {
-    prev();
-    startAutoplay();
-  });
-  document.querySelector(".carousel-next")?.addEventListener("click", () => {
-    next();
-    startAutoplay();
-  });
-  indicators.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      goTo(i);
-      startAutoplay();
-    });
-  });
-
-  startAutoplay();
 })();

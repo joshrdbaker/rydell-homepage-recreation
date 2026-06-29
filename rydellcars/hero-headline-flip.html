@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rydell Cars — Brandon Static Headline Hero</title>
+  <title>Rydell Cars — Flipping Headline Hero</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero-brandon.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
-<body>
+<body class="page-headline-flip">
   <div class="header-wrapper">
     <header>
       <div class="container header-top">
@@ -23,20 +24,8 @@
               <img src="https://www.rydellcars.com/static/industry-automotive/logos/supp/toyota/transparent/toyota.png" alt="Toyota" style="display:none" />
             </div>
           </a>
-          <a href="https://www.rydellcars.com/" class="real-rydell-logo" aria-label="Real Life, Real Relationships, Real Rydell">
-            <span class="real-line">
-              <span class="real-r" aria-hidden="true">R</span>
-              <span class="real-rest">eal Life</span>
-            </span>
-            <span class="real-line">
-              <span class="real-r" aria-hidden="true">R</span>
-              <span class="real-rest">eal Relationships</span>
-            </span>
-            <span class="real-line real-line--brand">
-              <span class="real-r" aria-hidden="true">R</span>
-              <span class="real-rest">eal </span>
-              <img class="rydell-wordmark" src="assets/rydell-wordmark.png" alt="Rydell" />
-            </span>
+          <a href="https://www.rydellcars.com/" class="dealer-logo">
+            <img src="https://www.rydellcars.com/static/dealer-5664/logo.png" alt="Rydell Cars Grand Forks, ND" />
           </a>
         </div>
         <div class="header-right">
@@ -103,7 +92,7 @@
 
   <main>
   <div class="quick-intro quick-intro--brandon-hero">
-    <div class="brandon-hero">
+    <div class="brandon-hero brandon-hero--headline-only">
       <video class="brandon-hero__video" autoplay loop muted playsinline poster="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
         <source src="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.mp4" type="video/mp4" />
       </video>
@@ -112,24 +101,16 @@
       <div class="brandon-hero__layout">
         <div class="brandon-hero__staff">
           <div class="brandon-hero__spotlight">
-            <div class="brandon-hero__figure-row">
-              <div class="brandon-hero__name-tag">
-                <div class="overlay-marker-text">
-                  <span class="overlay-line overlay-line--name">Brandon M.</span>
-                  <span class="overlay-line overlay-line--store">Honda Nissan store</span>
-                  <span class="overlay-line overlay-line--role">Certified Technician</span>
-                  <span class="overlay-line overlay-line--since">Team Member Since 2019</span>
-                </div>
-              </div>
-
-              <div class="staff-feature staff-feature--brandon-hero" id="staffCanvas" aria-label="Team spotlight: Brandon">
-                <img id="staffImage" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member" class="staff-cutout" />
-                <div class="overlay-layer" id="overlayLayer"></div>
-              </div>
-            </div>
-
-            <h1 class="brandon-hero__headline">
-              <span class="brandon-hero__headline-line">Real people</span>
+            <h1 class="brandon-hero__headline brandon-hero__headline--solo">
+              <span class="brandon-hero__headline-line">
+                Real
+                <span class="brandon-hero__word-flip" data-word-flip aria-live="polite">
+                  <span class="brandon-hero__word-flip-sizer" aria-hidden="true">relationships</span>
+                  <span class="brandon-hero__word-flip-stage">
+                    <span class="brandon-hero__word-flip-word is-current">people</span>
+                  </span>
+                </span>
+              </span>
               <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954.</span>
             </h1>
           </div>
@@ -283,13 +264,132 @@
       </div>
     </div>
   </section>
+
+  <section class="content-section dealerships-section" aria-label="Rydell Auto Group">
+    <div class="container dealerships-section__inner">
+      <div class="dealerships-section__copy">
+        <h2 class="dealerships-section__title">
+          Rydell Auto Group: Grand Forks Car Dealerships
+          <span class="dealerships-section__subtitle">Your Grand Forks Neighborhood Car Dealership Since 1954</span>
+        </h2>
+        <p class="dealerships-section__lead">Rydell has been serving North Dakota and Minnesota since 1954. We continue the proud tradition of providing a friendly car-buying atmosphere. We provide you with an unparalleled experience that you will not find at any other car dealership in North Dakota. Rydell offers a no hassle, no haggle pricing policy. You can&rsquo;t buy the wrong car at Rydell with our 7 Day Money Back Guarantee.</p>
+        <p class="dealerships-section__lead">Experience a new way to purchase your next vehicle!</p>
+        <a href="https://www.rydellcars.com/aboutus.aspx" class="btn-cta">More About Us</a>
+      </div>
+
+      <div class="dealerships-section__spotlight" id="dealershipSpotlight">
+        <div class="dealerships-section__bg" id="dealershipBg" aria-hidden="true"></div>
+        <div class="dealerships-section__figure">
+          <img id="dealershipStaffImg" class="dealerships-section__face staff-cutout" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member">
+          <div class="brandon-hero__name-tag dealerships-section__name-tag">
+            <div class="overlay-marker-text" id="dealershipMemberText" aria-live="polite">
+              <span class="overlay-line overlay-line--name">Brandon M.</span>
+              <span class="overlay-line overlay-line--store">Honda Nissan store</span>
+              <span class="overlay-line overlay-line--role">Certified Technician</span>
+              <span class="overlay-line overlay-line--since">Team Member Since 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   </main>
 
-  <script src="js/staff-data.js"></script>
+  <footer class="site-footer" aria-label="Rydell dealership locations">
+    <div class="container">
+      <h2 class="site-footer__title">Our Grand Forks Dealerships</h2>
+      <ul class="site-footer__locations">
+        <li class="site-footer__location">
+          <h3>Rydell Chevrolet GMC</h3>
+          <address>2700 S Washington St<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017727211">701-772-7211</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=2700+South+Washington+St,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Honda Nissan of Grand Forks</h3>
+          <address>3220 S Washington St<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017462020">701-746-2020</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=3220+S+Washington+St,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Toyota of Grand Forks</h3>
+          <address>2473 32nd Ave S<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017876259">701-787-6259</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=2473+32nd+Ave+S,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Auto Outlet</h3>
+          <address>5500 Gateway Dr<br>Grand Forks, ND 58203</address>
+          <p>Sales: <a href="tel:+17016202024">701-620-2024</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=5500+Gateway+Dr,+Grand+Forks,+ND+58203" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+      </ul>
+
+      <div class="site-footer__map-block">
+        <h2 class="site-footer__title site-footer__title--sub">Find Us in Grand Forks</h2>
+        <p class="site-footer__map-lead">All Rydell dealerships across Grand Forks — tap a pin for directions.</p>
+        <div class="site-footer__map" id="dealershipMap" role="region" aria-label="Map of Rydell dealership locations"></div>
+      </div>
+
+      <div class="site-footer__social-block">
+        <h2 class="site-footer__title site-footer__title--sub">Follow Us</h2>
+        <ul class="site-footer__social">
+          <li><a href="https://www.facebook.com/Rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
+          <li><a href="https://www.twitter.com/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
+          <li><a href="https://www.youtube.com/user/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></a></li>
+          <li><a href="https://www.linkedin.com/company/3235241/" target="_blank" rel="noopener" aria-label="Rydell on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+          <li><a href="https://www.instagram.com/rydellcars/" target="_blank" rel="noopener" aria-label="Rydell on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+          <li><a href="https://www.rydellcars.com/blogs/744/" target="_blank" rel="noopener" aria-label="Rydell blog"><i class="fa fa-rss" aria-hidden="true"></i><span>Blog</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/main.js"></script>
-  <script src="js/hero-brandon.js"></script>
+  <script src="js/hero-brandon-headline.js"></script>
   <script src="js/hero-brandon-controls.js"></script>
   <script src="js/make-racetrack.js"></script>
   <script src="js/chevy-slide-app.js"></script>
+  <script src="js/staff-data.js"></script>
+  <script src="js/dealerships-section.js"></script>
+  <script src="js/dealership-locations.js"></script>
+  <script src="js/dealership-map.js"></script>
 </body>
 </html>

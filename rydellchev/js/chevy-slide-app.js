@@ -2,7 +2,7 @@
   const root = document.querySelector(".chevy-slide-app");
   if (!root) return;
 
-  const BASE = "https://www.rydellcars.com";
+  const BASE = "https://www.rydellchev.com";
 
   const slides = [
     {

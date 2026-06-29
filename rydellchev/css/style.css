@@ -632,6 +632,19 @@ header {
   .lineup-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .promo-ribbon {
+    flex-direction: column;
+  }
+
+  .ribbon-item {
+    border-right: none;
+    border-bottom: 4px solid #fff;
+  }
+
+  .ribbon-item:last-child {
+    border-bottom: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -646,5 +659,454 @@ header {
 
   .nav-menu {
     overflow-x: auto;
+  }
+}
+
+@font-face {
+  font-family: "upgrade";
+  src: url("../fonts/Upgrade-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "upgrade";
+  src: url("../fonts/Upgrade-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hero-title {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.promo-ribbon {
+  display: flex;
+  width: 100%;
+  border-top: 4px solid #fff;
+}
+
+.ribbon-item {
+  flex: 1;
+  position: relative;
+  min-height: 180px;
+  overflow: hidden;
+  border-right: 4px solid #fff;
+}
+
+.ribbon-item:last-child {
+  border-right: none;
+}
+
+.ribbon-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.25s cubic-bezier(0.335, 0.015, 0.46, 0.995);
+}
+
+.ribbon-item:hover .ribbon-image {
+  transform: scale(1.06);
+}
+
+.ribbon-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 28px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.58) 38%,
+    rgba(0, 0, 0, 0.2) 58%,
+    rgba(0, 0, 0, 0) 78%
+  );
+  color: #fff;
+  z-index: 2;
+}
+
+.ribbon-text .btn-cta {
+  background: #f05151;
+  border-color: #f05151;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.ribbon-text .btn-cta:hover {
+  background: #f26d6f;
+  border-color: #f26d6f;
+}
+
+.ribbon-text h4 {
+  margin: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.ribbon-item--promises {
+  min-height: 240px;
+}
+
+.ribbon-item--promises .ribbon-image {
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+}
+
+.content-section {
+  padding: 40px 0 36px;
+}
+
+.content-section--chevy-slide {
+  padding: 42px 0 48px;
+  background-color: #333;
+  overflow: visible;
+}
+
+.chevy-slide-app {
+  --chevy-slide-red: #f05151;
+  --chevy-slide-text: #fff;
+  --chevy-slide-muted: rgba(255, 255, 255, 0.78);
+  --chevy-slide-maxw: 720px;
+  --chevy-slide-carousel-w: 780px;
+  --chevy-slide-carousel-h: 300px;
+  --chevy-slide-gap-above: 48px;
+  --chevy-slide-gap-below: 48px;
+  width: min(var(--chevy-slide-maxw), 100%);
+  margin: 0 auto;
+  text-align: center;
+  color: var(--chevy-slide-text);
+}
+
+.chevy-slide-app__panel {
+  overflow: visible;
+}
+
+.chevy-slide-app__headline {
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  margin: 14px 0 18px;
+  font-size: clamp(13px, 1.45vw, 26px);
+  line-height: 1.06;
+  text-align: center;
+  color: #fff;
+}
+
+.chevy-slide-app__headline::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin: 6px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--chevy-slide-red), #f26d6f);
+  opacity: 0.9;
+}
+
+.chevy-slide-app__headline-logo {
+  height: 1.05em;
+  vertical-align: -0.2em;
+}
+
+.chevy-slide-app__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-top: 0.1em;
+  padding: 0;
+  border: none;
+  background: rgba(240, 81, 81, 0.1);
+  color: var(--chevy-slide-red);
+  cursor: pointer;
+  font-size: clamp(16px, 2.5vw, 22px);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(240, 81, 81, 0.16);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.chevy-slide-app__nav:hover {
+  background: rgba(240, 81, 81, 0.18);
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(240, 81, 81, 0.28);
+}
+
+.chevy-slide-app__nav:active {
+  transform: scale(0.95);
+}
+
+.chevy-slide-app__nav:focus-visible {
+  outline: 2px solid var(--chevy-slide-red);
+  outline-offset: 3px;
+}
+
+.chevy-slide-app__carousel {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: var(--chevy-slide-carousel-w);
+  margin: var(--chevy-slide-gap-above) auto var(--chevy-slide-gap-below);
+  padding: 0;
+  overflow: visible;
+}
+
+.chevy-slide-app__carousel-track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  padding: 36px 0 24px;
+  overflow: visible;
+}
+
+.chevy-slide-app__card {
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  will-change: transform, opacity, filter;
+}
+
+.chevy-slide-app__card--center {
+  flex: 0 0 96%;
+  width: 96%;
+  max-width: none;
+  max-height: none;
+  border-radius: 3px;
+  aspect-ratio: 2.15 / 1;
+  opacity: 1;
+  filter: blur(0);
+  z-index: 4;
+  position: relative;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.chevy-slide-app__card--center .chevy-slide-app__card-img {
+  border-radius: 3px;
+}
+
+.chevy-slide-app__card--prev,
+.chevy-slide-app__card--next {
+  flex: 0 0 36%;
+  width: 36%;
+  max-height: var(--chevy-slide-carousel-h);
+  aspect-ratio: 2.15 / 1;
+  transform: scale(1.04);
+  opacity: 0.5;
+  filter: blur(1.5px);
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.chevy-slide-app__card--prev:hover,
+.chevy-slide-app__card--next:hover {
+  opacity: 0.7;
+}
+
+.chevy-slide-app__card--prev {
+  margin-right: clamp(-48px, -5.25vw, -30px);
+}
+
+.chevy-slide-app__card--next {
+  margin-left: clamp(-48px, -5.25vw, -30px);
+}
+
+.chevy-slide-app__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.chevy-slide-app__service-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(10px, 1.5vw, 18px);
+  width: 100%;
+  margin: -4px 0 0;
+  padding-top: 0;
+}
+
+.chevy-slide-app__service-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.chevy-slide-app__label {
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin: 0;
+  font-size: clamp(15px, 3vw, 26px);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.chevy-slide-app__desc {
+  margin: 0;
+  flex: 0 0 auto;
+  max-width: min(360px, 100%);
+  font-size: clamp(12px, 1.15vw, 14px);
+  line-height: 1.4;
+  color: var(--chevy-slide-muted);
+}
+
+.chevy-slide-app__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 10px 22px;
+  background: var(--chevy-slide-red);
+  border: 1px solid var(--chevy-slide-red);
+  color: #fff;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.chevy-slide-app__cta:hover {
+  background: #f26d6f;
+  border-color: #f26d6f;
+  color: #fff;
+}
+
+.chevy-slide-app__cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.chevy-slide-app__swipe-hint {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .chevy-slide-app__headline {
+    font-size: clamp(15px, 4.2vw, 24px);
+    line-height: 1.06;
+    margin: 12px auto 14px;
+    padding: 0 4px;
+    max-width: min(20rem, calc(100% - 8px));
+  }
+
+  .chevy-slide-app__carousel {
+    max-width: 100%;
+    margin-top: 44px;
+    margin-bottom: 36px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .chevy-slide-app__carousel-track {
+    padding: 28px 0 20px;
+  }
+
+  .chevy-slide-app__card--prev,
+  .chevy-slide-app__card--next {
+    display: none;
+  }
+
+  .chevy-slide-app__card--center {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    aspect-ratio: 2.1 / 1;
+  }
+
+  .chevy-slide-app__nav {
+    display: none;
+  }
+
+  .chevy-slide-app__service-row {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+    padding-top: 8px;
+    gap: 0;
+  }
+
+  .chevy-slide-app__service-copy {
+    gap: 16px;
+    padding: 0 8px;
+  }
+
+  .chevy-slide-app__desc {
+    max-width: min(320px, 100%);
+  }
+
+  .chevy-slide-app__cta {
+    max-width: 100%;
+    padding-inline: 18px;
+  }
+
+  .chevy-slide-app__swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
+    color: var(--chevy-slide-muted);
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .chevy-slide-app__swipe-hint i {
+    font-size: 10px;
+    animation: chevySlideNudge 1.8s ease-in-out infinite;
+  }
+
+  .chevy-slide-app__swipe-hint i:first-child {
+    animation-direction: reverse;
+  }
+
+  .chevy-slide-app__swipe-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @keyframes chevySlideNudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(4px);
+    }
   }
 }

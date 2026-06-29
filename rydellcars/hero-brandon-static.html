@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rydell Cars — Brandon Hero (Red)</title>
+  <title>Rydell Cars — Brandon Static Headline Hero</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero-brandon.css" />
-  <link rel="stylesheet" href="css/hero-brandon-red.css" />
 </head>
 <body>
   <div class="header-wrapper">
@@ -103,21 +102,41 @@
   </div>
 
   <main>
-  <div class="quick-intro quick-intro--brandon-hero quick-intro--brandon-red">
-    <div class="brandon-hero brandon-hero--red">
-      <div class="brandon-hero__inner">
-        <h1 class="brandon-hero__headline">Real People Since 1954.</h1>
+  <div class="quick-intro quick-intro--brandon-hero">
+    <div class="brandon-hero">
+      <video class="brandon-hero__video" autoplay loop muted playsinline poster="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
+        <source src="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay brandon-hero__overlay"></div>
 
-        <div class="brandon-hero__layout">
-          <div class="brandon-hero__staff">
-            <div class="staff-feature staff-feature--brandon-hero staff-feature--brandon-red" id="staffCanvas" aria-label="Team spotlight: Brandon">
-              <img id="staffImage" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member" class="staff-cutout" />
-              <div class="overlay-layer" id="overlayLayer"></div>
+      <div class="brandon-hero__layout">
+        <div class="brandon-hero__staff">
+          <div class="brandon-hero__spotlight">
+            <div class="brandon-hero__figure-row">
+              <div class="brandon-hero__name-tag">
+                <div class="overlay-marker-text">
+                  <span class="overlay-line overlay-line--name">Brandon M.</span>
+                  <span class="overlay-line overlay-line--store">Honda Nissan store</span>
+                  <span class="overlay-line overlay-line--role">Certified Technician</span>
+                  <span class="overlay-line overlay-line--since">Team Member Since 2019</span>
+                </div>
+              </div>
+
+              <div class="staff-feature staff-feature--brandon-hero" id="staffCanvas" aria-label="Team spotlight: Brandon">
+                <img id="staffImage" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member" class="staff-cutout" />
+                <div class="overlay-layer" id="overlayLayer"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="brandon-hero__search">
-            <div class="brandon-hero__search-inner">
+            <h1 class="brandon-hero__headline">
+              <span class="brandon-hero__headline-line">Real people</span>
+              <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954.</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="brandon-hero__search">
+          <div class="video-content brandon-hero__search-inner">
             <h2 class="hero-title">Inventory Search</h2>
             <ul class="search-nav">
               <li class="active">
@@ -268,6 +287,7 @@
   <script src="js/staff-data.js"></script>
   <script src="js/main.js"></script>
   <script src="js/hero-brandon.js"></script>
+  <script src="js/hero-brandon-controls.js"></script>
   <script src="js/make-racetrack.js"></script>
   <script src="js/chevy-slide-app.js"></script>
 </body>

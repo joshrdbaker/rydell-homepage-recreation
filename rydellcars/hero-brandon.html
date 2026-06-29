@@ -109,26 +109,6 @@
       </video>
       <div class="video-overlay brandon-hero__overlay"></div>
 
-      <div class="real-people-backdrop real-people-backdrop--hero" aria-hidden="true">
-        <div class="real-people-lockup real-people-lockup--hero">
-          <div class="real-people-line real-people-line--people-full">
-            <img class="real-people-r" src="assets/rydell-r.png" alt="" />
-            <span class="real-people-text">eal</span>
-            <span class="real-people-word">People</span>
-          </div>
-          <div class="real-people-line real-people-line--relationships">
-            <img class="real-people-r" src="assets/rydell-r.png" alt="" />
-            <span class="real-people-text">eal</span>
-            <span class="real-people-word">Relationships</span>
-          </div>
-          <div class="real-people-line real-people-line--brand">
-            <img class="real-people-r" src="assets/rydell-r.png" alt="" />
-            <span class="real-people-text">eal </span>
-            <img class="real-people-wordmark" src="assets/rydell-wordmark.png" alt="" />
-          </div>
-        </div>
-      </div>
-
       <div class="brandon-hero__layout">
         <div class="brandon-hero__staff">
           <div class="brandon-hero__spotlight">
@@ -149,8 +129,16 @@
             </div>
 
             <h1 class="brandon-hero__headline">
-              <span class="brandon-hero__headline-line">Real people</span>
-              <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954</span>
+              <span class="brandon-hero__headline-line">
+                Real
+                <span class="brandon-hero__word-flip" data-word-flip aria-live="polite">
+                  <span class="brandon-hero__word-flip-sizer" aria-hidden="true">relationships</span>
+                  <span class="brandon-hero__word-flip-stage">
+                    <span class="brandon-hero__word-flip-word is-current">people</span>
+                  </span>
+                </span>
+              </span>
+              <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954.</span>
             </h1>
           </div>
         </div>
@@ -247,9 +235,9 @@
       </div>
     </a>
     <a href="https://www.rydellcars.com/aboutus.aspx#brandPromise" class="ribbon-item ribbon-item--promises">
-      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5663/brandPromise.png')"></div>
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5664/images/body-shop/tech.jpg')"></div>
       <div class="ribbon-text">
-        <h4>What makes Rydell real?</h4>
+        <h4>What makes Rydell &ldquo;real&rdquo;?</h4>
         <span class="btn-cta">Our Seven Promises to You</span>
       </div>
     </a>
@@ -259,17 +247,7 @@
     <div class="container">
       <h2 class="h1 text-center make-racetrack__title">Shop by Vehicle Make</h2>
       <div class="pad-vert-1x" aria-hidden="true"></div>
-      <div class="racetrack-carousel" id="makeRacetrack" data-racetrack data-racetrack-speed="0.45">
-        <button type="button" class="racetrack-carousel__control racetrack-carousel__control--prev" data-racetrack-prev aria-label="Scroll makes left">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <div class="racetrack-carousel__viewport" data-racetrack-viewport>
-          <div class="racetrack-carousel__track" id="makeRacetrackTrack" data-racetrack-track></div>
-        </div>
-        <button type="button" class="racetrack-carousel__control racetrack-carousel__control--next" data-racetrack-next aria-label="Scroll makes right">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
-      </div>
+      <div class="make-racetrack__grid" id="makeRacetrackGrid"></div>
     </div>
   </section>
 
@@ -317,9 +295,9 @@
   <script src="js/staff-data.js"></script>
   <script src="js/main.js"></script>
   <script src="js/hero-brandon.js"></script>
+  <script src="js/hero-brandon-headline.js"></script>
   <script src="js/hero-brandon-controls.js"></script>
   <script src="js/make-racetrack.js"></script>
-  <script src="js/racetrack-carousel.js"></script>
   <script src="js/chevy-slide-app.js"></script>
 </body>
 </html>

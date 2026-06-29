@@ -1,16 +1,45 @@
 (function () {
-  const STORAGE_KEY = "hero-brandon-layout-v2";
+  if (!window.location.search.includes("controls=1")) return;
+
+  const headlineOnly = Boolean(document.querySelector(".brandon-hero--headline-only"));
+  const STORAGE_KEY = headlineOnly ? "hero-brandon-flip-layout-v4" : "hero-brandon-layout-v4";
   const spotlight = document.querySelector(".brandon-hero__spotlight");
 
   if (!spotlight) return;
 
-  const defaults = {
-    brandonX: -81,
-    brandonY: 7,
-    brandonScale: 1.1,
-    headlineX: 33,
-    headlineY: -50
+  const typographyDefaults = {
+    headlineLetterSpacing: -0.04,
+    headlineLineHeight: 0.84,
+    headlineWordSpacing: 0
   };
+
+  const flipTypographyDefaults = {
+    headlineLetterSpacing: -0.04,
+    headlineLineHeight: 0.88,
+    headlineWordSpacing: 0
+  };
+
+  const defaults = headlineOnly
+    ? Object.assign(
+        {
+          brandonX: 0,
+          brandonY: 0,
+          brandonScale: 1,
+          headlineX: 111,
+          headlineY: 0
+        },
+        flipTypographyDefaults
+      )
+    : Object.assign(
+        {
+          brandonX: -106,
+          brandonY: 1,
+          brandonScale: 1.17,
+          headlineX: -83,
+          headlineY: -114
+        },
+        typographyDefaults
+      );
 
   const controls = [
     {
@@ -62,6 +91,36 @@
       step: 1,
       unit: "px",
       cssVar: "--headline-y"
+    },
+    {
+      id: "headlineLetterSpacing",
+      label: "Kerning",
+      group: "headline",
+      min: -0.12,
+      max: 0.08,
+      step: 0.005,
+      unit: "em",
+      cssVar: "--headline-letter-spacing"
+    },
+    {
+      id: "headlineLineHeight",
+      label: "Line height",
+      group: "headline",
+      min: 0.6,
+      max: 1.2,
+      step: 0.01,
+      unit: "lh",
+      cssVar: "--headline-line-height"
+    },
+    {
+      id: "headlineWordSpacing",
+      label: "Word space",
+      group: "headline",
+      min: -0.2,
+      max: 0.3,
+      step: 0.005,
+      unit: "em",
+      cssVar: "--headline-word-spacing"
     }
   ];
 
@@ -77,7 +136,7 @@
     '<button type="button" class="hero-layout-panel__toggle" id="heroLayoutToggle" aria-expanded="true">Hide</button>' +
     "</div>" +
     '<div class="hero-layout-panel__body">' +
-    buildGroup("Brandon Image", "brandon") +
+    (headlineOnly ? "" : buildGroup("Brandon Image", "brandon")) +
     buildGroup("Headline", "headline") +
     "</div>" +
     '<div class="hero-layout-panel__footer">' +
@@ -94,6 +153,8 @@
   const inputs = {};
 
   controls.forEach(function (control) {
+    if (headlineOnly && control.group === "brandon") return;
+
     inputs[control.id] = document.getElementById("heroLayout-" + control.id);
     inputs[control.id].addEventListener("input", function () {
       state[control.id] = Number(inputs[control.id].value);
@@ -176,6 +237,14 @@
       return value.toFixed(2) + control.unit;
     }
 
+    if (control.unit === "em") {
+      return value.toFixed(3) + control.unit;
+    }
+
+    if (control.unit === "lh") {
+      return value.toFixed(2);
+    }
+
     return Math.round(value) + control.unit;
   }
 
@@ -184,11 +253,21 @@
       return String(Number(value.toFixed(2)));
     }
 
+    if (control.unit === "em") {
+      return value.toFixed(3) + "em";
+    }
+
+    if (control.unit === "lh") {
+      return String(Number(value.toFixed(2)));
+    }
+
     return Math.round(value) + "px";
   }
 
   function applyState() {
     controls.forEach(function (control) {
+      if (headlineOnly && control.group === "brandon") return;
+
       spotlight.style.setProperty(control.cssVar, cssValue(control, state[control.id]));
       document.getElementById("heroLayoutValue-" + control.id).textContent = formatValue(
         control,
@@ -200,31 +279,24 @@
 
   function syncInputs() {
     controls.forEach(function (control) {
+      if (headlineOnly && control.group === "brandon") return;
+
       inputs[control.id].value = String(state[control.id]);
     });
     applyState();
   }
 
   function buildCssSnippet() {
-    return (
-      ".brandon-hero__spotlight {\n" +
-      "  --brandon-x: " +
-      cssValue(controls[0], state.brandonX) +
-      ";\n" +
-      "  --brandon-y: " +
-      cssValue(controls[1], state.brandonY) +
-      ";\n" +
-      "  --brandon-scale: " +
-      cssValue(controls[2], state.brandonScale) +
-      ";\n" +
-      "  --headline-x: " +
-      cssValue(controls[3], state.headlineX) +
-      ";\n" +
-      "  --headline-y: " +
-      cssValue(controls[4], state.headlineY) +
-      ";\n" +
-      "}"
-    );
+    const lines = [".brandon-hero__spotlight {"];
+
+    controls.forEach(function (control) {
+      if (headlineOnly && control.group === "brandon") return;
+
+      lines.push("  " + control.cssVar + ": " + cssValue(control, state[control.id]) + ";");
+    });
+
+    lines.push("}");
+    return lines.join("\n");
   }
 
   function loadState() {

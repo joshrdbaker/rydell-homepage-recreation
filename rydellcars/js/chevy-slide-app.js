@@ -2,56 +2,77 @@
   const root = document.querySelector(".chevy-slide-app");
   if (!root) return;
 
+  const BASE = "https://www.rydellcars.com";
+
   const slides = [
     {
       label: "RYDELL DELIVERS",
       text: "Free pickup and delivery, year-round. Simple service.",
       image: "assets/chevy-slide/rydell delivers.png",
+      ctaText: "Learn About Delivery",
+      ctaHref: BASE + "/rydell-delivers",
     },
     {
       label: "OIL SERVICE",
       text: "Every 5,000–8,000 km. Fresh oil and filters keep your engine protected.",
       image: "assets/chevy-slide/oil change.png",
+      ctaText: "Schedule Oil Change",
+      ctaHref: BASE + "/oil-change-quick-lube.html",
     },
     {
       label: "TIRE SERVICE",
       text: "Rotate every 8,000–10,000 km. Seasonal swaps for safety and longer tread life.",
       image: "assets/chevy-slide/tire service.png",
+      ctaText: "Schedule Tire Service",
+      ctaHref: BASE + "/schedule-service.html",
     },
     {
       label: "CAR WASH",
       text: "Monthly washes help—especially in winter—to clear salt and protect paint.",
       image: "assets/chevy-slide/car wash.png",
+      ctaText: "Visit Car Wash",
+      ctaHref: BASE + "/the-rydell-carwash.html",
     },
     {
       label: "BODY SHOP",
       text: "Dents to collision repair—restore safety, structure, and finish.",
       image: "assets/chevy-slide/body shop.png",
+      ctaText: "Visit Body Shop",
+      ctaHref: BASE + "/body-shop.html",
     },
     {
       label: "DETAILING",
       text: "Deep clean inside and out—refresh the look and protect surfaces.",
       image: "assets/chevy-slide/detail.png",
+      ctaText: "Book Detailing",
+      ctaHref: BASE + "/detail-center.html",
     },
     {
       label: "SERVICE",
       text: "Scheduled maintenance and inspections to keep you reliably on the road.",
       image: "assets/chevy-slide/service.png",
+      ctaText: "Schedule Service",
+      ctaHref: BASE + "/schedule-service.html",
     },
     {
       label: "TRADE-IN",
       text: "Clean it up and get it checked—arrive ready for a strong appraisal.",
       image: "assets/chevy-slide/trade-in.png",
+      ctaText: "Get Your Offer",
+      ctaHref: BASE + "/rydell-buys",
     },
     {
       label: "NEW VEHICLE",
       text: "New ride? A quick walk-through and baseline service get you road-ready.",
       image: "assets/chevy-slide/New Vehicle.png",
+      ctaText: "Shop New Inventory",
+      ctaHref: BASE + "/searchnew.aspx",
     },
   ];
 
   const label = root.querySelector("#chevySlideLabel");
   const desc = root.querySelector("#chevySlideDesc");
+  const cta = root.querySelector("#chevySlideCta");
   const btnPrev = root.querySelector("#chevySlideBtnPrev");
   const btnNext = root.querySelector("#chevySlideBtnNext");
   const imgPrev = root.querySelector("#chevySlideImgPrev");
@@ -60,7 +81,16 @@
   const swipeHint = root.querySelector("#chevySlideSwipeHint");
   const carouselEl = root.querySelector(".chevy-slide-app__carousel");
 
-  if (!label || !desc || !imgPrev || !imgCenter || !imgNext || !carouselEl) return;
+  if (!label || !desc || !cta || !imgPrev || !imgCenter || !imgNext || !carouselEl) return;
+
+  function updateSlideCopy(idx) {
+    const slide = slides[idx];
+    label.textContent = slide.label;
+    desc.textContent = slide.text;
+    cta.textContent = slide.ctaText;
+    cta.href = slide.ctaHref;
+    cta.setAttribute("aria-label", slide.ctaText + " — " + slide.label);
+  }
 
   const cardPrev = imgPrev.parentElement;
   const cardCenter = imgCenter.parentElement;
@@ -140,8 +170,7 @@
       } else {
         currentIndex = wrap(currentIndex + dir);
         setImages(currentIndex);
-        label.textContent = slides[currentIndex].label;
-        desc.textContent = slides[currentIndex].text;
+        updateSlideCopy(currentIndex);
         const enterSign = -exitSign;
         cardCenter.style.transform =
           "translateX(" + enterSign * travel + "px) translateY(0px) scale(0.88)";
@@ -265,8 +294,7 @@
       } else {
         currentIndex = wrap(currentIndex + dir);
         setImages(currentIndex);
-        label.textContent = slides[currentIndex].label;
-        desc.textContent = slides[currentIndex].text;
+        updateSlideCopy(currentIndex);
         resetCardStyles();
         sliding = false;
         animateNewPeek(dir > 0 ? cardNext : cardPrev, PEEK_EARLY);
@@ -358,6 +386,5 @@
 
   setImages(0);
   resetCardStyles();
-  label.textContent = slides[0].label;
-  desc.textContent = slides[0].text;
+  updateSlideCopy(0);
 })();

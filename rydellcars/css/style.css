@@ -953,6 +953,29 @@ header {
   color: var(--chevy-slide-muted);
 }
 
+.chevy-slide-app__cta {
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: var(--chevy-slide-red);
+  border: 1px solid var(--chevy-slide-red);
+  color: #fff;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.chevy-slide-app__cta:hover {
+  background: #f26d6f;
+  border-color: #f26d6f;
+  color: #fff;
+}
+
+.chevy-slide-app__cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 .chevy-slide-app__swipe-hint {
   display: none;
 }

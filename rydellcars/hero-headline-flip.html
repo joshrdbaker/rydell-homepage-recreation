@@ -41,6 +41,158 @@
     .page-headline-flip .above-the-fold .ribbon-item--promises {
       min-height: clamp(120px, 16vh, 180px);
     }
+
+    .page-headline-flip .navbar__toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #333;
+      font-size: 22px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .page-headline-flip .promo-ribbon--mobile-secondary {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      .page-headline-flip .navbar__toggle {
+        display: inline-flex;
+      }
+
+      .page-headline-flip .navbar__inner {
+        position: relative;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .page-headline-flip .nav-menu {
+        display: none;
+        flex: 1 0 100%;
+        flex-direction: column;
+        width: 100%;
+        overflow: visible;
+        border-top: 1px solid var(--nav-border);
+        background: var(--nav-bg);
+      }
+
+      .page-headline-flip .navbar.is-open .nav-menu {
+        display: flex;
+      }
+
+      .page-headline-flip .nav-menu > li > a,
+      .page-headline-flip .nav-menu > li > button {
+        width: 100%;
+        text-align: left;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--nav-border);
+      }
+
+      .page-headline-flip .above-the-fold {
+        min-height: calc(100svh - var(--site-chrome-height));
+        height: auto;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .page-headline-flip .above-the-fold .quick-intro--brandon-hero,
+      .page-headline-flip .above-the-fold .brandon-hero {
+        min-height: 0;
+        height: auto;
+        max-height: none;
+      }
+
+      .page-headline-flip .above-the-fold .quick-intro--brandon-hero {
+        flex: 1 1 auto;
+      }
+
+      .page-headline-flip .brandon-hero {
+        position: relative;
+        flex: 1 1 auto;
+        min-height: clamp(320px, 58vh, 560px);
+        overflow: visible;
+      }
+
+      .page-headline-flip .brandon-hero__layout {
+        position: relative;
+        display: block;
+        height: 100%;
+        min-height: 0;
+      }
+
+      .page-headline-flip .brandon-hero__staff {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        height: 54%;
+        min-height: 0;
+        order: unset;
+        padding: 16px 16px 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-headline-flip .brandon-hero__spotlight {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline--solo {
+        font-size: clamp(2.35rem, 11vw, 3.4rem);
+        transform: none;
+        text-align: center;
+      }
+
+      .page-headline-flip .brandon-hero__search {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        order: unset;
+        width: 100%;
+        padding: 0 12px 12px;
+        margin: 0;
+      }
+
+      .page-headline-flip .brandon-hero__search-inner.video-content {
+        width: 100%;
+        max-width: none;
+        padding: 16px 16px 18px;
+      }
+
+      .page-headline-flip .above-the-fold .promo-ribbon {
+        border-top: 0;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--offers,
+      .page-headline-flip .above-the-fold .ribbon-item--service {
+        display: none;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises {
+        min-height: clamp(96px, 12vh, 128px);
+        border-right: 0;
+      }
+
+      .page-headline-flip .promo-ribbon--mobile-secondary {
+        display: flex;
+        border-top: 4px solid #fff;
+      }
+
+      .page-headline-flip .promo-ribbon--mobile-secondary .ribbon-item {
+        min-height: 140px;
+      }
+    }
   </style>
 </head>
 <body class="page-headline-flip has-viewport-hero">
@@ -92,7 +244,7 @@
       </div>
     </header>
 
-    <nav class="navbar navbar--combined">
+    <nav class="navbar navbar--combined" id="siteNavBar">
       <div class="container navbar__inner">
         <div class="navbar__logos brand-logos">
           <a href="https://www.rydellcars.com/" class="manu-logo">
@@ -109,7 +261,10 @@
             <img src="https://www.rydellcars.com/static/dealer-5664/logo.png" alt="Rydell Cars Grand Forks, ND" />
           </a>
         </div>
-        <ul class="nav-menu">
+        <button type="button" class="navbar__toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-menu" id="siteNav">
           <li><a href="https://www.rydellcars.com/" class="home-link" aria-label="Home"><i class="fa fa-home"></i></a></li>
           <li><button type="button">Shop</button></li>
           <li><button type="button">Sell/Trade</button></li>
@@ -249,6 +404,23 @@
     </a>
   </section>
   </div>
+
+  <section class="promo-ribbon promo-ribbon--mobile-secondary" aria-label="More quick links">
+    <a href="https://www.rydellcars.com/rydell_new_offers.html" class="ribbon-item ribbon-item--offers">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Special Offers</h4>
+        <span class="btn-cta">View Specials</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/schedule-service.html" class="ribbon-item ribbon-item--service">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Schedule Service</h4>
+        <span class="btn-cta">Schedule Now</span>
+      </div>
+    </a>
+  </section>
 
   <section class="content-section content-section--makes" aria-label="Shop by vehicle make">
     <div class="container">
@@ -428,6 +600,17 @@
       window.addEventListener("resize", syncAboveFoldHeight);
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(syncAboveFoldHeight);
+      }
+
+      var navBar = document.getElementById("siteNavBar");
+      var navToggle = document.getElementById("siteNavToggle");
+      if (navBar && navToggle) {
+        navToggle.addEventListener("click", function () {
+          var isOpen = navBar.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+          syncAboveFoldHeight();
+        });
       }
     })();
   </script>

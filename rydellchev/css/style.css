@@ -58,18 +58,22 @@ img {
 
 .header-wrapper {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
-header {
+header,
+.site-header {
   background: #fff;
   color: #222;
 }
 
-.header-top {
+.header-top,
+.site-header__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  gap: 16px;
+  padding: 6px 0;
 }
 
 .header-left,
@@ -83,6 +87,28 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+}
+
+.navbar__logos {
+  flex: 0 0 auto;
+  padding-right: 12px;
+  margin-right: 4px;
+  border-right: 1px solid var(--nav-border);
+}
+
+.navbar--combined .navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.navbar--combined .nav-menu {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .manu-logo img {
@@ -92,6 +118,14 @@ header {
 
 .dealer-logo img {
   max-height: 35px;
+}
+
+.navbar__logos .dealer-logo img {
+  max-height: 32px;
+}
+
+.navbar__logos .logo-carbravo img {
+  max-height: 24px;
 }
 
 .logo-carbravo img {
@@ -106,9 +140,32 @@ header {
   line-height: 1.5;
 }
 
+.phone-list label,
 .phone-list .tel-label {
+  display: inline;
   font-weight: 700;
-  margin-right: 4px;
+  margin: 0 4px 0 0;
+}
+
+.phone-list--horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 0;
+  min-width: 0;
+}
+
+.phone-list--horizontal > li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.phone-list--horizontal > li + li {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid #ddd;
 }
 
 .phone-list .sales-line {
@@ -144,6 +201,12 @@ header {
   border-bottom: 1px solid var(--nav-border);
 }
 
+.navbar .container,
+.navbar__inner {
+  display: flex;
+  align-items: center;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -154,7 +217,7 @@ header {
 .nav-menu > li > a,
 .nav-menu > li > button {
   display: block;
-  padding: 15px 14px;
+  padding: 12px 12px;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -683,8 +746,16 @@ header {
   }
 
   .header-right .phone-list,
-  .header-right .icon-links {
+  .header-right .icon-links,
+  .site-header__row .phone-list,
+  .site-header__row .icon-links {
     display: none;
+  }
+
+  .navbar__logos {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
   }
 
   .lineup-grid {

@@ -9,11 +9,58 @@
   <link rel="stylesheet" href="css/hero-brandon.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
-<body>
+<body class="has-viewport-hero">
   <div class="header-wrapper">
-    <header>
-      <div class="container header-top">
-        <div class="header-left brand-logos">
+    <header class="site-header">
+      <div class="container site-header__row">
+        <ul class="phone-list phone-list--horizontal">
+          <li>
+            <label>Rydell Chevrolet GMC</label>
+            <span>701-772-7211</span>
+          </li>
+          <li>
+            <label>Rydell Honda Nissan</label>
+            <span>701-746-2020</span>
+          </li>
+          <li>
+            <label>Rydell Toyota</label>
+            <span>701-787-6259</span>
+          </li>
+        </ul>
+        <div class="icon-links">
+          <ul>
+            <li>
+              <a href="https://www.rydellcars.com/serviceappmt.aspx" class="icon-link">
+                <i class="fa fa-calendar-check-o"></i>
+                <span>Service</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/hours.aspx" class="icon-link">
+                <i class="fa fa-map-marker"></i>
+                <span>Map</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/contactus.aspx" class="icon-link">
+                <i class="fa fa-envelope"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/mysavedvehicles" class="icon-link saved">
+                <i class="fa fa-heart"></i>
+                <span>Saved</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <nav class="navbar navbar--combined">
+      <div class="container navbar__inner">
+        <div class="navbar__logos brand-logos">
           <a href="https://www.rydellcars.com/" class="manu-logo">
             <div class="rotate-logos">
               <img src="https://www.rydellcars.com/assets/logos/transparent/chevrolet.png" alt="Chevrolet" />
@@ -40,55 +87,6 @@
             </span>
           </a>
         </div>
-        <div class="header-right">
-          <ul class="phone-list">
-            <li>
-              <label>Rydell Chevrolet GMC</label>
-              <span>701-772-7211</span>
-            </li>
-            <li>
-              <label>Rydell Honda Nissan</label>
-              <span>701-746-2020</span>
-            </li>
-            <li>
-              <label>Rydell Toyota</label>
-              <span>701-787-6259</span>
-            </li>
-          </ul>
-          <div class="icon-links">
-            <ul>
-              <li>
-                <a href="https://www.rydellcars.com/serviceappmt.aspx" class="icon-link">
-                  <i class="fa fa-calendar-check-o"></i>
-                  <span>Service</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.rydellcars.com/hours.aspx" class="icon-link">
-                  <i class="fa fa-map-marker"></i>
-                  <span>Map</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.rydellcars.com/contactus.aspx" class="icon-link">
-                  <i class="fa fa-envelope"></i>
-                  <span>Contact</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.rydellcars.com/mysavedvehicles" class="icon-link saved">
-                  <i class="fa fa-heart"></i>
-                  <span>Saved</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <nav class="navbar">
-      <div class="container">
         <ul class="nav-menu">
           <li><a href="https://www.rydellcars.com/" class="home-link" aria-label="Home"><i class="fa fa-home"></i></a></li>
           <li><button type="button">Shop</button></li>

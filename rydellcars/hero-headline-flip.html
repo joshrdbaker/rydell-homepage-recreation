@@ -96,12 +96,14 @@
       }
 
       .page-headline-flip .above-the-fold {
+        height: calc(100svh - var(--site-chrome-height));
         min-height: calc(100svh - var(--site-chrome-height));
-        height: auto;
-        max-height: none;
-        overflow: visible;
+        max-height: calc(100svh - var(--site-chrome-height));
+        overflow: hidden;
       }
 
+      .page-headline-flip.has-viewport-hero .quick-intro--brandon-hero,
+      .page-headline-flip.has-viewport-hero .brandon-hero,
       .page-headline-flip .above-the-fold .quick-intro--brandon-hero,
       .page-headline-flip .above-the-fold .brandon-hero {
         min-height: 0;
@@ -111,63 +113,111 @@
 
       .page-headline-flip .above-the-fold .quick-intro--brandon-hero {
         flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
       }
 
       .page-headline-flip .brandon-hero {
         position: relative;
         flex: 1 1 auto;
-        min-height: clamp(320px, 58vh, 560px);
-        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
       }
 
       .page-headline-flip .brandon-hero__layout {
         position: relative;
-        display: block;
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
         min-height: 0;
+        height: auto;
       }
 
       .page-headline-flip .brandon-hero__staff {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
         z-index: 2;
-        height: 54%;
+        flex: 0 0 auto;
+        height: auto;
         min-height: 0;
-        order: unset;
-        padding: 16px 16px 0;
+        max-height: none;
+        order: 0;
+        display: flex;
+        padding: 14px 16px 6px;
         align-items: center;
         justify-content: center;
       }
 
-      .page-headline-flip .brandon-hero__spotlight {
-        align-items: center;
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__staff {
         justify-content: center;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__spotlight {
+        display: block;
+        width: 100%;
+        height: auto;
       }
 
       .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline--solo {
-        font-size: clamp(2.35rem, 11vw, 3.4rem);
-        transform: none;
+        position: relative;
+        order: 0;
+        left: auto;
+        bottom: auto;
+        margin: 0;
+        padding: 0;
         text-align: center;
+        transform: none;
+        font-size: clamp(2.35rem, 11vw, 3.15rem);
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline-line--since {
+        margin-top: 0.06em;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__word-flip {
+        display: inline-block;
+        vertical-align: bottom;
       }
 
       .page-headline-flip .brandon-hero__search {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 3;
-        order: unset;
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: 4;
+        flex: 1 1 auto;
+        order: 0;
         width: 100%;
-        padding: 0 12px 12px;
+        min-height: 0;
+        padding: 0 12px 10px;
         margin: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .page-headline-flip .brandon-hero__search-inner.video-content {
         width: 100%;
         max-width: none;
-        padding: 16px 16px 18px;
+        padding: 14px 14px 16px;
+      }
+
+      .page-headline-flip .brandon-hero__search-inner .hero-title {
+        font-size: 22px;
+        margin-bottom: 10px;
       }
 
       .page-headline-flip .above-the-fold .promo-ribbon {
@@ -180,8 +230,38 @@
       }
 
       .page-headline-flip .above-the-fold .ribbon-item--promises {
-        min-height: clamp(96px, 12vh, 128px);
+        min-height: clamp(168px, 24vh, 220px);
         border-right: 0;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-image {
+        background-position: 72% 28%;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text {
+        justify-content: flex-start;
+        padding: 18px 20px;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.88) 0%,
+          rgba(0, 0, 0, 0.72) 42%,
+          rgba(0, 0, 0, 0.18) 58%,
+          rgba(0, 0, 0, 0) 72%
+        );
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text h4 {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        max-width: 11em;
+        font-size: 16px;
+        line-height: 1.15;
+        text-transform: none;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text .btn-cta {
+        margin-top: 10px;
       }
 
       .page-headline-flip .promo-ribbon--mobile-secondary {
@@ -398,7 +478,10 @@
     <a href="https://www.rydellcars.com/aboutus.aspx#brandPromise" class="ribbon-item ribbon-item--promises">
       <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5664/images/body-shop/tech.jpg')"></div>
       <div class="ribbon-text">
-        <h4>What makes Rydell &ldquo;real&rdquo;?</h4>
+        <h4>
+          <span>What makes Rydell </span>
+          <span>&ldquo;real&rdquo;?</span>
+        </h4>
         <span class="btn-cta">Our Seven Promises to You</span>
       </div>
     </a>

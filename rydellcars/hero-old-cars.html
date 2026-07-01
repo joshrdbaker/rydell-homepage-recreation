@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rydell Cars — Old Cars Hero</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hero-brandon.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <style>
+    /* Canonical headline-flip: lock hero + promo ribbon within the first viewport. */
+    .page-headline-flip {
+      --site-chrome-height: 112px;
+    }
+
+    .page-headline-flip .above-the-fold {
+      display: flex;
+      flex-direction: column;
+      height: calc(100svh - var(--site-chrome-height));
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .page-headline-flip .above-the-fold .quick-intro--brandon-hero {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
+      max-height: none;
+    }
+
+    .page-headline-flip .above-the-fold .brandon-hero {
+      min-height: 0;
+    }
+
+    .page-headline-flip .above-the-fold .promo-ribbon {
+      flex: 0 0 auto;
+    }
+
+    /* Old-cars hero: edge-to-edge exported Premiere cycle. */
+    .page-old-cars .brandon-hero__video {
+      width: 100vw;
+      left: 50%;
+      right: auto;
+      margin-left: -50vw;
+      object-fit: cover;
+    }
+
+    .page-old-cars .brandon-hero__overlay {
+      width: 100vw;
+      left: 50%;
+      right: auto;
+      margin-left: -50vw;
+    }
+
+    .page-headline-flip .above-the-fold .ribbon-item,
+    .page-headline-flip .above-the-fold .ribbon-item--promises {
+      min-height: clamp(120px, 16vh, 180px);
+    }
+
+    .page-headline-flip .navbar__toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #333;
+      font-size: 22px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .page-headline-flip .promo-ribbon--mobile-secondary {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      .page-headline-flip .navbar__toggle {
+        display: inline-flex;
+      }
+
+      .page-headline-flip .navbar__inner {
+        position: relative;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .page-headline-flip .nav-menu {
+        display: none;
+        flex: 1 0 100%;
+        flex-direction: column;
+        width: 100%;
+        overflow: visible;
+        border-top: 1px solid var(--nav-border);
+        background: var(--nav-bg);
+      }
+
+      .page-headline-flip .navbar.is-open .nav-menu {
+        display: flex;
+      }
+
+      .page-headline-flip .nav-menu > li > a,
+      .page-headline-flip .nav-menu > li > button {
+        width: 100%;
+        text-align: left;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--nav-border);
+      }
+
+      .page-headline-flip .above-the-fold {
+        height: calc(100svh - var(--site-chrome-height));
+        min-height: calc(100svh - var(--site-chrome-height));
+        max-height: calc(100svh - var(--site-chrome-height));
+        overflow: hidden;
+      }
+
+      .page-headline-flip.has-viewport-hero .quick-intro--brandon-hero,
+      .page-headline-flip.has-viewport-hero .brandon-hero,
+      .page-headline-flip .above-the-fold .quick-intro--brandon-hero,
+      .page-headline-flip .above-the-fold .brandon-hero {
+        min-height: 0;
+        height: auto;
+        max-height: none;
+      }
+
+      .page-headline-flip .above-the-fold .quick-intro--brandon-hero {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .page-headline-flip .brandon-hero {
+        position: relative;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .page-headline-flip .brandon-hero__layout {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        height: auto;
+      }
+
+      .page-headline-flip .brandon-hero__staff {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        z-index: 2;
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        order: 0;
+        display: flex;
+        padding: 14px 16px 6px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__staff {
+        justify-content: center;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__spotlight {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline--solo {
+        position: relative;
+        order: 0;
+        left: auto;
+        bottom: auto;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        transform: none;
+        font-size: clamp(2.35rem, 11vw, 3.15rem);
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__headline-line--since {
+        margin-top: 0.06em;
+      }
+
+      .page-headline-flip .brandon-hero--headline-only .brandon-hero__word-flip {
+        display: inline-block;
+        vertical-align: bottom;
+      }
+
+      .page-headline-flip .brandon-hero__search {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: 4;
+        flex: 1 1 auto;
+        order: 0;
+        width: 100%;
+        min-height: 0;
+        padding: 0 12px 10px;
+        margin: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .page-headline-flip .brandon-hero__search-inner.video-content {
+        width: 100%;
+        max-width: none;
+        padding: 14px 14px 16px;
+      }
+
+      .page-headline-flip .brandon-hero__search-inner .hero-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .page-headline-flip .above-the-fold .promo-ribbon {
+        border-top: 0;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--offers,
+      .page-headline-flip .above-the-fold .ribbon-item--service {
+        display: none;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises {
+        min-height: clamp(168px, 24vh, 220px);
+        border-right: 0;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-image {
+        background-position: 72% 28%;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text {
+        justify-content: flex-start;
+        padding: 18px 20px;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.88) 0%,
+          rgba(0, 0, 0, 0.72) 42%,
+          rgba(0, 0, 0, 0.18) 58%,
+          rgba(0, 0, 0, 0) 72%
+        );
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text h4 {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        max-width: 11em;
+        font-size: 16px;
+        line-height: 1.15;
+        text-transform: none;
+      }
+
+      .page-headline-flip .above-the-fold .ribbon-item--promises .ribbon-text .btn-cta {
+        margin-top: 10px;
+      }
+
+      .page-headline-flip .promo-ribbon--mobile-secondary {
+        display: flex;
+        border-top: 4px solid #fff;
+      }
+
+      .page-headline-flip .promo-ribbon--mobile-secondary .ribbon-item {
+        min-height: 140px;
+      }
+    }
+  </style>
+</head>
+<body class="page-old-cars page-headline-flip has-viewport-hero">
+  <div class="header-wrapper">
+    <header class="site-header">
+      <div class="container site-header__row">
+        <ul class="phone-list phone-list--horizontal">
+          <li>
+            <label>Rydell Chevrolet GMC</label>
+            <span>701-772-7211</span>
+          </li>
+          <li>
+            <label>Rydell Honda Nissan</label>
+            <span>701-746-2020</span>
+          </li>
+          <li>
+            <label>Rydell Toyota</label>
+            <span>701-787-6259</span>
+          </li>
+        </ul>
+        <div class="icon-links">
+          <ul>
+            <li>
+              <a href="https://www.rydellcars.com/serviceappmt.aspx" class="icon-link">
+                <i class="fa fa-calendar-check-o"></i>
+                <span>Service</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/hours.aspx" class="icon-link">
+                <i class="fa fa-map-marker"></i>
+                <span>Map</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/contactus.aspx" class="icon-link">
+                <i class="fa fa-envelope"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rydellcars.com/mysavedvehicles" class="icon-link saved">
+                <i class="fa fa-heart"></i>
+                <span>Saved</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <nav class="navbar navbar--combined" id="siteNavBar">
+      <div class="container navbar__inner">
+        <div class="navbar__logos brand-logos">
+          <a href="https://www.rydellcars.com/" class="manu-logo">
+            <div class="rotate-logos">
+              <img src="https://www.rydellcars.com/assets/logos/transparent/chevrolet.png" alt="Chevrolet" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/gmc.png" alt="GMC" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/cadillac.png" alt="Cadillac" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/honda.png" alt="Honda" style="display:none" />
+              <img src="https://www.rydellcars.com/assets/logos/transparent/nissan.png" alt="Nissan" style="display:none" />
+              <img src="https://www.rydellcars.com/static/industry-automotive/logos/supp/toyota/transparent/toyota.png" alt="Toyota" style="display:none" />
+            </div>
+          </a>
+          <a href="https://www.rydellcars.com/" class="dealer-logo">
+            <img src="https://www.rydellcars.com/static/dealer-5664/logo.png" alt="Rydell Cars Grand Forks, ND" />
+          </a>
+        </div>
+        <button type="button" class="navbar__toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-menu" id="siteNav">
+          <li><a href="https://www.rydellcars.com/" class="home-link" aria-label="Home"><i class="fa fa-home"></i></a></li>
+          <li><button type="button">Shop</button></li>
+          <li><button type="button">Sell/Trade</button></li>
+          <li><button type="button">Service &amp; Parts</button></li>
+          <li><button type="button">Offers</button></li>
+          <li><button type="button">About</button></li>
+          <li><button type="button">Contact</button></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+  <div class="above-the-fold">
+  <div class="quick-intro quick-intro--brandon-hero">
+    <div class="brandon-hero brandon-hero--headline-only">
+      <video class="brandon-hero__video" autoplay loop muted playsinline preload="auto" poster="https://www.rydellcars.com/static/brand-chevrolet/homepage/videos/Latest/bgVideo.jpg">
+        <source src="assets/hero-videos/hero-old-cars-cycle.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay brandon-hero__overlay"></div>
+
+      <div class="brandon-hero__layout">
+        <div class="brandon-hero__staff">
+          <div class="brandon-hero__spotlight">
+            <h1 class="brandon-hero__headline brandon-hero__headline--solo">
+              <span class="brandon-hero__headline-line">
+                Real
+                <span class="brandon-hero__word-flip" data-word-flip aria-live="polite">
+                  <span class="brandon-hero__word-flip-sizer" aria-hidden="true">relationships</span>
+                  <span class="brandon-hero__word-flip-stage">
+                    <span class="brandon-hero__word-flip-word is-current">people</span>
+                  </span>
+                </span>
+              </span>
+              <span class="brandon-hero__headline-line brandon-hero__headline-line--since">since 1954.</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="brandon-hero__search">
+          <div class="video-content brandon-hero__search-inner">
+            <h2 class="hero-title">Inventory Search</h2>
+            <ul class="search-nav">
+              <li class="active">
+                <button type="button" data-search-tab="filter"><i class="fa fa-sliders"></i> Vehicle</button>
+              </li>
+              <li>
+                <button type="button" data-search-tab="keyword"><i class="fa fa-search"></i> Keyword</button>
+              </li>
+              <li>
+                <button type="button" data-search-tab="budget"><i class="fa fa-usd"></i> Budget</button>
+              </li>
+            </ul>
+
+            <div class="search-panel active" data-search-panel="filter">
+              <form id="searchByFilterForm">
+                <div class="vehicle-filters">
+                  <div class="vehicle-filter">
+                    <label for="searchByFilterType">Type</label>
+                    <select id="searchByFilterType" name="VehicleType">
+                      <option value="Type:A">All</option>
+                      <option value="Type:N">New</option>
+                      <option value="Type:U">Used</option>
+                      <option value="Cpo:true">Certified</option>
+                    </select>
+                  </div>
+                  <div class="vehicle-filter">
+                    <label for="searchByFilterMakes">Make</label>
+                    <select id="searchByFilterMakes" name="VehicleMake">
+                      <option value="">Any Make</option>
+                    </select>
+                  </div>
+                  <div class="vehicle-filter">
+                    <label for="searchByFilterModels">Model</label>
+                    <select id="searchByFilterModels" name="VehicleModel">
+                      <option value="">Any Model</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="search-actions">
+                  <button type="button" class="btn-reset" id="searchByFilterReset">Reset</button>
+                  <button type="submit" class="btn-search">Search</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="search-panel" data-search-panel="keyword">
+              <div class="keyword-search">
+                <input type="text" placeholder="Search by Make, Stock #, etc." aria-label="Keyword search" />
+                <button type="button" class="btn-search">Search</button>
+              </div>
+            </div>
+
+            <div class="search-panel" data-search-panel="budget">
+              <div class="budget-inputs">
+                <div class="vehicle-filter">
+                  <label for="price_min">Minimum Price</label>
+                  <input id="price_min" type="text" placeholder="0" />
+                </div>
+                <div class="vehicle-filter">
+                  <label for="price_max">Maximum Price</label>
+                  <input id="price_max" type="text" placeholder="121,000" />
+                </div>
+              </div>
+              <div class="search-actions">
+                <button type="button" class="btn-reset">Reset</button>
+                <button type="button" class="btn-search">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="promo-ribbon" aria-label="Quick links">
+    <a href="https://www.rydellcars.com/rydell_new_offers.html" class="ribbon-item ribbon-item--offers">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Special Offers</h4>
+        <span class="btn-cta">View Specials</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/schedule-service.html" class="ribbon-item ribbon-item--service">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Schedule Service</h4>
+        <span class="btn-cta">Schedule Now</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/aboutus.aspx#brandPromise" class="ribbon-item ribbon-item--promises">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/dealer-5664/images/body-shop/tech.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>
+          <span>What makes Rydell </span>
+          <span>&ldquo;real&rdquo;?</span>
+        </h4>
+        <span class="btn-cta">Our Seven Promises to You</span>
+      </div>
+    </a>
+  </section>
+  </div>
+
+  <section class="promo-ribbon promo-ribbon--mobile-secondary" aria-label="More quick links">
+    <a href="https://www.rydellcars.com/rydell_new_offers.html" class="ribbon-item ribbon-item--offers">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-chevrolet/homepage/quick_navs/quickNav12.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Special Offers</h4>
+        <span class="btn-cta">View Specials</span>
+      </div>
+    </a>
+    <a href="https://www.rydellcars.com/schedule-service.html" class="ribbon-item ribbon-item--service">
+      <div class="ribbon-image" style="background-image:url('https://www.rydellcars.com/static/brand-gmc/homepage/quick_navs/quickNav8.jpg')"></div>
+      <div class="ribbon-text">
+        <h4>Schedule Service</h4>
+        <span class="btn-cta">Schedule Now</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="content-section content-section--makes" aria-label="Shop by vehicle make">
+    <div class="container">
+      <h2 class="h1 text-center make-racetrack__title">Shop by Vehicle Make</h2>
+      <div class="pad-vert-1x" aria-hidden="true"></div>
+      <div class="make-racetrack__grid" id="makeRacetrackGrid"></div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--chevy-slide" aria-label="Vehicle services">
+    <div class="container">
+      <div class="chevy-slide-app">
+        <section class="chevy-slide-app__panel" aria-label="Season slider">
+          <h2 class="chevy-slide-app__headline">
+            Everything your vehicle needs, all year round at
+            <img src="assets/rydell-wordmark.png" alt="Rydell" class="chevy-slide-app__headline-logo">
+          </h2>
+
+          <div class="chevy-slide-app__carousel">
+            <div class="chevy-slide-app__carousel-track" id="chevySlideTrack">
+              <div class="chevy-slide-app__card chevy-slide-app__card--prev" role="button" tabindex="0" aria-label="View previous slide"><img id="chevySlideImgPrev" class="chevy-slide-app__card-img" src="" alt=""></div>
+              <div class="chevy-slide-app__card chevy-slide-app__card--center" role="button" tabindex="0" aria-label="Advance to next slide"><img id="chevySlideImgCenter" class="chevy-slide-app__card-img" src="" alt=""></div>
+              <div class="chevy-slide-app__card chevy-slide-app__card--next" role="button" tabindex="0" aria-label="View next slide"><img id="chevySlideImgNext" class="chevy-slide-app__card-img" src="" alt=""></div>
+            </div>
+          </div>
+
+          <div class="chevy-slide-app__service-row">
+            <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--prev" id="chevySlideBtnPrev" aria-label="Previous service">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="chevy-slide-app__service-copy">
+              <div class="chevy-slide-app__label" id="chevySlideLabel">RYDELL DELIVERS</div>
+              <p class="chevy-slide-app__desc" id="chevySlideDesc"></p>
+              <a href="https://www.rydellcars.com/rydell-delivers" class="chevy-slide-app__cta" id="chevySlideCta">Learn About Delivery</a>
+            </div>
+            <button type="button" class="chevy-slide-app__nav chevy-slide-app__nav--next" id="chevySlideBtnNext" aria-label="Next service">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="chevy-slide-app__swipe-hint" id="chevySlideSwipeHint" aria-hidden="true">
+            <i class="fa fa-chevron-left"></i>
+            <span>swipe</span>
+            <i class="fa fa-chevron-right"></i>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section dealerships-section" aria-label="Rydell Auto Group">
+    <div class="container dealerships-section__inner">
+      <div class="dealerships-section__copy">
+        <h2 class="dealerships-section__title">
+          Rydell Auto Group: Grand Forks Car Dealerships
+          <span class="dealerships-section__subtitle">Your Grand Forks Neighborhood Car Dealership Since 1954</span>
+        </h2>
+        <p class="dealerships-section__lead">Rydell has been serving North Dakota and Minnesota since 1954. We continue the proud tradition of providing a friendly car-buying atmosphere. We provide you with an unparalleled experience that you will not find at any other car dealership in North Dakota. Rydell offers a no hassle, no haggle pricing policy. You can&rsquo;t buy the wrong car at Rydell with our 7 Day Money Back Guarantee.</p>
+        <p class="dealerships-section__lead">Experience a new way to purchase your next vehicle!</p>
+        <a href="https://www.rydellcars.com/aboutus.aspx" class="btn-cta">More About Us</a>
+      </div>
+
+      <div class="dealerships-section__spotlight" id="dealershipSpotlight">
+        <div class="dealerships-section__bg" id="dealershipBg" aria-hidden="true"></div>
+        <div class="dealerships-section__figure">
+          <img id="dealershipStaffImg" class="dealerships-section__face staff-cutout" src="assets/brandon-cutout.png" alt="Brandon — Rydell team member">
+          <div class="brandon-hero__name-tag dealerships-section__name-tag">
+            <div class="overlay-marker-text" id="dealershipMemberText" aria-live="polite">
+              <span class="overlay-line overlay-line--name">Brandon M.</span>
+              <span class="overlay-line overlay-line--store">Honda Nissan store</span>
+              <span class="overlay-line overlay-line--role">Certified Technician</span>
+              <span class="overlay-line overlay-line--since">Team Member Since 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Rydell dealership locations">
+    <div class="container">
+      <h2 class="site-footer__title">Our Grand Forks Dealerships</h2>
+      <ul class="site-footer__locations">
+        <li class="site-footer__location">
+          <h3>Rydell Chevrolet GMC</h3>
+          <address>2700 S Washington St<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017727211">701-772-7211</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=2700+South+Washington+St,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Honda Nissan of Grand Forks</h3>
+          <address>3220 S Washington St<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017462020">701-746-2020</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=3220+S+Washington+St,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Toyota of Grand Forks</h3>
+          <address>2473 32nd Ave S<br>Grand Forks, ND 58201</address>
+          <p>Sales: <a href="tel:+17017876259">701-787-6259</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=2473+32nd+Ave+S,+Grand+Forks,+ND+58201" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+        <li class="site-footer__location">
+          <h3>Rydell Auto Outlet</h3>
+          <address>5500 Gateway Dr<br>Grand Forks, ND 58203</address>
+          <p>Sales: <a href="tel:+17016202024">701-620-2024</a></p>
+          <table class="site-footer__hours">
+            <caption class="visually-hidden">Sales hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Tue – Fri</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 5:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <a class="site-footer__directions" href="https://maps.google.com/maps?daddr=5500+Gateway+Dr,+Grand+Forks,+ND+58203" target="_blank" rel="noopener">Driving Directions</a>
+        </li>
+      </ul>
+
+      <div class="site-footer__map-block">
+        <h2 class="site-footer__title site-footer__title--sub">Find Us in Grand Forks</h2>
+        <p class="site-footer__map-lead">All Rydell dealerships across Grand Forks — tap a pin for directions.</p>
+        <div class="site-footer__map" id="dealershipMap" role="region" aria-label="Map of Rydell dealership locations"></div>
+      </div>
+
+      <div class="site-footer__social-block">
+        <h2 class="site-footer__title site-footer__title--sub">Follow Us</h2>
+        <ul class="site-footer__social">
+          <li><a href="https://www.facebook.com/Rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
+          <li><a href="https://www.twitter.com/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
+          <li><a href="https://www.youtube.com/user/rydellcars" target="_blank" rel="noopener" aria-label="Rydell on YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></a></li>
+          <li><a href="https://www.linkedin.com/company/3235241/" target="_blank" rel="noopener" aria-label="Rydell on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+          <li><a href="https://www.instagram.com/rydellcars/" target="_blank" rel="noopener" aria-label="Rydell on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+          <li><a href="https://www.rydellcars.com/blogs/744/" target="_blank" rel="noopener" aria-label="Rydell blog"><i class="fa fa-rss" aria-hidden="true"></i><span>Blog</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    (function () {
+      function syncAboveFoldHeight() {
+        var header = document.querySelector(".page-headline-flip .header-wrapper");
+        if (!header) return;
+        document.body.style.setProperty("--site-chrome-height", header.offsetHeight + "px");
+      }
+
+      syncAboveFoldHeight();
+      window.addEventListener("resize", syncAboveFoldHeight);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncAboveFoldHeight);
+      }
+
+      var navBar = document.getElementById("siteNavBar");
+      var navToggle = document.getElementById("siteNavToggle");
+      if (navBar && navToggle) {
+        navToggle.addEventListener("click", function () {
+          var isOpen = navBar.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+          syncAboveFoldHeight();
+        });
+      }
+    })();
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/hero-brandon-headline.js"></script>
+  <script src="js/hero-brandon-controls.js"></script>
+  <script src="js/make-racetrack.js"></script>
+  <script src="js/chevy-slide-app.js"></script>
+  <script src="js/staff-data.js"></script>
+  <script src="js/dealerships-section.js"></script>
+  <script src="js/dealership-locations.js"></script>
+  <script src="js/dealership-map.js"></script>
+</body>
+</html>

@@ -28,6 +28,23 @@ body.has-viewport-hero {
   object-fit: cover;
 }
 
+.brandon-hero__video-stack {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.brandon-hero__video--cycle {
+  opacity: 0;
+  transition: none;
+  z-index: 0;
+}
+
+.brandon-hero__video--cycle.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
 .brandon-hero__overlay {
   z-index: 1;
 }

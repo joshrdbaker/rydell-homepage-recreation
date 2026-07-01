@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="4">
+  <project>
+    <name>Hero Video Cycle</name>
+    <children>
+      <bin>
+        <name>Media</name>
+        <children>
+        <file id="file-1950">
+          <name>1950.mp4</name>
+          <pathurl>file:///Users/mistermister/Projects/rydell-homepage-recreation/rydellcars/premiere-hero-cycle/media/1950.mp4</pathurl>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+          <duration>889</duration>
+          <media>
+            <video>
+              <samplecharacteristics>
+                <width>768</width>
+                <height>432</height>
+              </samplecharacteristics>
+            </video>
+          </media>
+        </file>
+        <file id="file-bgVideo">
+          <name>bgVideo.mp4</name>
+          <pathurl>file:///Users/mistermister/Projects/rydell-homepage-recreation/rydellcars/premiere-hero-cycle/media/bgVideo.mp4</pathurl>
+          <rate>
+            <timebase>30</timebase>
+            <ntsc>FALSE</ntsc>
+          </rate>
+          <duration>600</duration>
+          <media>
+            <video>
+              <samplecharacteristics>
+                <width>1280</width>
+                <height>720</height>
+              </samplecharacteristics>
+            </video>
+          </media>
+        </file>
+        <file id="file-1960">
+          <name>1960.mp4</name>
+          <pathurl>file:///Users/mistermister/Projects/rydell-homepage-recreation/rydellcars/premiere-hero-cycle/media/1960.mp4</pathurl>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+          <duration>162</duration>
+          <media>
+            <video>
+              <samplecharacteristics>
+                <width>768</width>
+                <height>432</height>
+              </samplecharacteristics>
+            </video>
+          </media>
+        </file>
+        <file id="file-1990">
+          <name>1990.mp4</name>
+          <pathurl>file:///Users/mistermister/Projects/rydell-homepage-recreation/rydellcars/premiere-hero-cycle/media/1990.mp4</pathurl>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+          <duration>3228</duration>
+          <media>
+            <video>
+              <samplecharacteristics>
+                <width>768</width>
+                <height>432</height>
+              </samplecharacteristics>
+            </video>
+          </media>
+        </file>
+        </children>
+      </bin>
+      <sequence id="sequence-1">
+        <name>Hero Video Cycle (Web)</name>
+        <duration>375</duration>
+        <rate>
+          <timebase>30</timebase>
+          <ntsc>FALSE</ntsc>
+        </rate>
+        <media>
+          <video>
+            <format>
+              <samplecharacteristics>
+                <width>1280</width>
+                <height>720</height>
+                <rate>
+                  <timebase>30</timebase>
+                  <ntsc>FALSE</ntsc>
+                </rate>
+              </samplecharacteristics>
+            </format>
+            <track>
+              <clipitem id="clipitem1">
+                <masterclipid>masterclip1</masterclipid>
+                <name>1950</name>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+                <start>0</start>
+                <end>75</end>
+                <in>0</in>
+                <out>60</out>
+                <file id="file-1950"/>
+              </clipitem>
+              <clipitem id="clipitem2">
+                <masterclipid>masterclip2</masterclipid>
+                <name>Silverado A</name>
+          <rate>
+            <timebase>30</timebase>
+            <ntsc>FALSE</ntsc>
+          </rate>
+                <start>75</start>
+                <end>135</end>
+                <in>60</in>
+                <out>120</out>
+                <file id="file-bgVideo"/>
+              </clipitem>
+              <clipitem id="clipitem3">
+                <masterclipid>masterclip3</masterclipid>
+                <name>1960</name>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+                <start>135</start>
+                <end>195</end>
+                <in>0</in>
+                <out>48</out>
+                <file id="file-1960"/>
+              </clipitem>
+              <clipitem id="clipitem4">
+                <masterclipid>masterclip4</masterclipid>
+                <name>Silverado B</name>
+          <rate>
+            <timebase>30</timebase>
+            <ntsc>FALSE</ntsc>
+          </rate>
+                <start>195</start>
+                <end>255</end>
+                <in>240</in>
+                <out>300</out>
+                <file id="file-bgVideo"/>
+              </clipitem>
+              <clipitem id="clipitem5">
+                <masterclipid>masterclip5</masterclipid>
+                <name>1990</name>
+          <rate>
+            <timebase>24</timebase>
+            <ntsc>TRUE</ntsc>
+          </rate>
+                <start>255</start>
+                <end>315</end>
+                <in>0</in>
+                <out>48</out>
+                <file id="file-1990"/>
+              </clipitem>
+              <clipitem id="clipitem6">
+                <masterclipid>masterclip6</masterclipid>
+                <name>Equinox trio</name>
+          <rate>
+            <timebase>30</timebase>
+            <ntsc>FALSE</ntsc>
+          </rate>
+                <start>315</start>
+                <end>375</end>
+                <in>420</in>
+                <out>480</out>
+                <file id="file-bgVideo"/>
+              </clipitem>
+            </track>
+          </video>
+        </media>
+      </sequence>
+    </children>
+  </project>
+</xmeml>
